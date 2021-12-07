@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:fragment="dynamic(main)">
+<head>
+<meta charset="utf-8">
+<title>PC-COVID19</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta content="" name="keywords">
+<meta content="" name="description">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+	integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+	crossorigin="anonymous">
+<link rel="stylesheet" href="/assert/css/style1.css">
+
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+	crossorigin="anonymous">
+<!-- JavaScript Bundle with Popper -->
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+	crossorigin="anonymous"></script>
+
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link
+	href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700"
+	rel="stylesheet">
+
+<link rel="stylesheet" href="/assert/css/open-iconic-bootstrap.min.css">
+<link rel="stylesheet" href="/assert/css/animate.css">
+
+<link rel="stylesheet" href="/assert/css/owl.carousel.min.css">
+<link rel="stylesheet" href="/assert/css/owl.theme.default.min.css">
+<link rel="stylesheet" href="/assert/css/magnific-popup.css">
+
+<link rel="stylesheet" href="/assert/css/aos.css">
+
+<link rel="stylesheet" href="/assert/css/ionicons.min.css">
+
+<link rel="stylesheet" href="/assert/css/bootstrap-datepicker.css">
+<link rel="stylesheet" href="/assert/css/jquery.timepicker.css">
+
+
+<link rel="stylesheet" href="/assert/css/flaticon.css">
+<link rel="stylesheet" href="/assert/css/icomoon.css">
+<link rel="stylesheet" href="/assert/css/style.css">
+<link rel="stylesheet" href="/assert/css/chart.css">
+
+<script src="https://code.jquery.com/jquery-3.6.0.js"
+	integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+	crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link rel="stylesheet"
+	href="https://rawgit.com/gionkunz/chartist-js/master/dist/chartist.min.css">
+<script
+	src="https://rawgit.com/gionkunz/chartist-js/master/dist/chartist.min.js"></script>
+<style>
+.conteiner {
+	margin: 50px;
+	margin-left: 50px;
+	margin-right: 50px;
+	padding: 50px;
+	border: rgb(255, 255, 255) 1px solid;
+	border-radius: 10px 10px 10px 10px;
+	box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px
+		rgba(0, 0, 0, 0.22);
+}
+
+input.ng-invalid.ng-touched {
+	border: solid 1px red;
+}
+</style>
+</head>
+
+<body ng-app="dangky" ng-controller="dangky-ctrl">
+
+	<nav class="row">
+		<div th:replace="/layout/_menu.html"></div>
+	</nav>
+
+	<div>
+		<section>
+			<div th:replace="${main}"></div>
+		</section>
+	</div>
+	<footer class="ftco-footer ftco-bg-dark ftco-section">
+		<div class="container">
+			<div class="row mb-5">
+				<div class="col-md-3">
+					<div class="ftco-footer-widget mb-4">
+						<h2 class="ftco-heading-2">PC-COVID19</h2>
+						<p>Chúng tôi luôn cập nhật tin tức một cách nhanh nhất và
+							chính xác nhất</p>
+					</div>
+					<ul
+						class="ftco-footer-social list-unstyled float-md-left float-lft ">
+						<li class="ftco-animate"><a href="#"><span
+								class="icon-twitter"></span></a></li>
+						<li class="ftco-animate"><a
+							href="https://www.facebook.com/khoepv"><span
+								class="icon-facebook"></span></a></li>
+						<li class="ftco-animate"><a href="#"><span
+								class="icon-instagram"></span></a></li>
+					</ul>
+				</div>
+				<div class="col-md-2">
+					<div class="ftco-footer-widget mb-4 ml-md-5">
+						<h2 class="ftco-heading-2">Đường dẫn nhanh</h2>
+						<ul class="list-unstyled">
+							<li><a href="#" class="py-2 d-block">Trang chủ</a></li>
+							<li><a href="#" class="py-2 d-block">Tin tức</a></li>
+							<li><a href="#" class="py-2 d-block">Liên hệ</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-md-4 pr-md-4">
+					<div class="ftco-footer-widget mb-4">
+						<h2 class="ftco-heading-2">Tin tức gần đây</h2>
+						<div class="block-21 mb-4 d-flex" th:each="b: ${blog}">
+							<a class="blog-img mr-4"
+								th:href="@{|/chitiettintuc?idtintuc=${b.idblog}|}"> <img
+								th:src="@{|/assert/images/${b.hinhanh}|}" class="img-fluid"
+								alt="" style="width: 100%">
+							</a>
+							<div class="text">
+								<h3 class="heading">
+									<a th:href="@{|/chitiettintuc?idtintuc=${b.idblog}|}">[[${b.tieude}]]</a>
+								</h3>
+								<div class="meta">
+									<div>
+										<p>
+											<span class="icon-calendar"></span> [[${b.ngaytao}]]
+										</p>
+									</div>
+									<div>
+										<p>
+											<span class="icon-person"></span> [[${b.account.hoten}]]
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="ftco-footer-widget mb-4">
+						<h2 class="ftco-heading-2">Văn phòng</h2>
+						<div class="block-23 mb-3">
+							<ul>
+								<li><span class="icon icon-map-marker"></span><span
+									class="text">288, Nguyễn Văn Linh, phường An Khánh, Ninh
+										Kiều Cần Thơ</span></li>
+								<li><a href="#"><span class="icon icon-phone"></span><span
+										class="text">+84 335 2730 73</span></a></li>
+								<li><a href="#"><span class="icon icon-envelope"></span><span
+										class="text">nghialtpc00727@fpt.edu.vn</span></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12 text-center">
+
+					<p>
+						Cần Thơ &copy;
+						<script>
+							document.write(new Date().getFullYear());
+						</script>
+						Chúng tôi luôn đồng hành cùng bạn | Cập nhất tin tức nhanh chóng <i
+							class="icon-heart" aria-hidden="true"></i> by <a
+							href="https://colorlib.com" target="_blank">Covid</a>
+					</p>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+
+
+	<!-- loader -->
+	<div id="ftco-loader" class="show fullscreen">
+		<svg class="circular" width="48px" height="48px">
+			<circle class="path-bg" cx="24" cy="24" r="22" fill="none"
+				stroke-width="4" stroke="#eeeeee" />
+			<circle class="path" cx="24" cy="24" r="22" fill="none"
+				stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg>
+	</div>
+
+	<!-- Modal -->
+	<div class="modal fade" id="modalRequest" tabindex="-1" role="dialog"
+		aria-labelledby="modalRequestLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-body">
+					<div id="logreg-forms">
+						<form ng-show="check" class="form-signin"
+							th:action="@{/security/dangnhap}" method="post">
+							<h1 class="h3 mb-3 font-weight-normal" style="text-align: center">
+								Đăng nhập</h1>
+							<div class="social-login" style="text-align: center">
+								<button class="btn google-btn social-btn" type="button"
+									style="width: 250px">
+									<span><i class="fab fa-google-plus-g"></i> Đăng nhập
+										bằng Google+</span>
+								</button>
+							</div>
+							<p style="text-align: center">HOẶC</p>
+							<input type="text" id="inputUsername" class="form-control"
+								placeholder="Tài khoản" required="" ng-model="taikhoan"
+								name="username"> <input type="password"
+								id="inputPassword" class="form-control" placeholder="Mật khẩu"
+								required="" ng-model="matkhau" name="password">
+
+							<button class="btn btn-success btn-block" ng-mousemove="login()"
+								ng-click="message123()">
+								<i class="fas fa-sign-in-alt"></i> Đăng nhập
+							</button>
+							<a href="#" id="forgot_pswd">Quên mật khẩu?</a>
+							<hr>
+							<!-- <p>Don't have an account!</p>  -->
+							<button class="btn btn-primary btn-block" type="button"
+								id="btn-signup">
+								<i class="fas fa-user-plus"></i> Tạo tài khoản đăng nhập mới
+							</button>
+						</form>
+
+						<form ng-hide="check" class="form-signin">
+							<h1 class="h3 mb-3 font-weight-normal" style="text-align: center">
+								Đăng nhập</h1>
+							<div class="social-login" style="text-align: center">
+								<button class="btn google-btn social-btn" type="button"
+									style="width: 250px">
+									<span><i class="fab fa-google-plus-g"></i> Đăng nhập
+										bằng Google+</span>
+								</button>
+							</div>
+							<p style="text-align: center">HOẶC</p>
+							<input type="text" id="inputUsername" class="form-control"
+								placeholder="Tài khoản" required="" ng-model="taikhoan"
+								name="username"> <input type="password"
+								id="inputPassword" class="form-control" placeholder="Mật khẩu"
+								required="" ng-model="matkhau" name="password">
+
+							<button class="btn btn-success btn-block" ng-mousemove="login()"
+								ng-click="message123()">
+								<i class="fas fa-sign-in-alt"></i> Đăng nhập
+							</button>
+							<br>
+							<div ng-show="show" class="alert alert-danger" role="alert">{{thongbao}}</div>
+							<a href="#" id="forgot_pswd">Quên mật khẩu?</a>
+							<hr>
+							<!-- <p>Don't have an account!</p>  -->
+							<button class="btn btn-primary btn-block" type="button"
+								id="btn-signup">
+								<i class="fas fa-user-plus"></i> Tạo tài khoản đăng nhập mới
+							</button>
+						</form>
+
+						<form ng-show="check2" th:action="@{/quenmatkhau}" method="post"
+							class="form-reset">
+							<input type="text" id="resetUser" class="form-control"
+								placeholder="Tài khoản" ng-model="qmkTK" name="username"
+								autofocus="" required="required"> <input type="email"
+								id="resetEmail" ng-model="qmkEmail" name="email"
+								class="form-control" placeholder="Địa chỉ Email" autofocus=""
+								required="required"> <br> <i th:text="${message}"></i>
+							<button ng-mousemove="qmk()" ng-click="thongbao()"
+								class="btn btn-primary btn-block">Lấy lại mật khẩu</button>
+							<br>
+							<div ng-show="show3" class="alert alert-danger" role="alert">{{thongbao3}}</div>
+							<a href="#" id="cancel_reset"><i class="fas fa-angle-left"></i>
+								Trở lại</a>
+						</form>
+
+						<form ng-hide="check2" class="form-reset">
+							<input type="text" id="resetUser" class="form-control"
+								placeholder="Tài khoản" ng-model="qmkTK" name="username"
+								autofocus="" required="required"> <input type="email"
+								id="resetEmail" ng-model="qmkEmail" name="email"
+								class="form-control" placeholder="Địa chỉ Email" autofocus=""
+								required="required"> <br> <i th:text="${message}"></i>
+							<button ng-mousemove="qmk()" ng-click="thongbao()"
+								class="btn btn-primary btn-block">Lấy lại mật khẩu</button>
+							<br>
+							<div ng-show="show3" class="alert alert-danger" role="alert">{{thongbao3}}</div>
+							<a href="#" id="cancel_reset"><i class="fas fa-angle-left"></i>
+								Trở lại</a>
+						</form>
+
+						<div class="form-signup">
+							<div class="social-login">
+								<button class="btn google-btn social-btn" type="button">
+									<span><i class="fab fa-google-plus-g"></i> Đăng nhập
+										bằng Google+</span>
+								</button>
+							</div>
+
+							<p style="text-align: center">HOẶC</p>
+
+							<input type="text" id="full-name" class="form-control"
+								placeholder="Họ và tên" ng-model="form.hoten" required="true"
+								autofocus=""> <input type="text" id="user-namel"
+								class="form-control" placeholder="Tài khoản"
+								ng-model="form.username" required autofocus=""> <input
+								type="password" id="user-pass" class="form-control"
+								placeholder="Mật khẩu" ng-model="form.matkhau" required
+								autofocus=""> <input type="password"
+								id="user-repeatpass" class="form-control"
+								placeholder="Nhập lại mật khẩu" ng-model="matkhau2" required
+								autofocus=""> <input type="email" id="user-emai"
+								class="form-control" ng-model="form.email"
+								placeholder="Địa chỉ Email" required autofocus=""> <input
+								type="text" id="user-phone" class="form-control"
+								placeholder="Số điện thoại" ng-model="form.sdt" required
+								autofocus=""> <input type="date" id="user-bithrday"
+								class="form-control" placeholder="Ngày sinh"
+								ng-model="form.ngaysinh" required autofocus=""> <select
+								class="form-control" id="exampleFormControlSelect1"
+								ng-model="form.gioitinh">
+								<option disabled="disabled">Giới tính</option>
+								<option ng-value="true">Nam</option>
+								<option ng-value="false">Nữ</option>
+							</select> <input type="text" id="user-address" class="form-control"
+								placeholder="Địa chỉ" ng-model="form.diachi" required
+								autofocus="">
+
+							<button class="btn btn-primary btn-block" ng-click="create2()">
+								<i class="fas fa-user-plus"></i> Đăng kí
+							</button>
+							<br>
+							<div ng-show="show2" class="alert alert-danger" role="alert">{{thongbao2}}</div>
+							<a href="#" id="cancel_signup"><i class="fas fa-angle-left"></i>
+								Trở lại</a>
+						</div>
+						<br>
+
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+
+	<script src="/assert/js/jquery.min.js"></script>
+	<script src="/assert/js/jquery-migrate-3.0.1.min.js"></script>
+	<script src="/assert/js/popper.min.js"></script>
+	<script src="/assert/js/bootstrap.min.js"></script>
+	<script src="/assert/js/jquery.easing.1.3.js"></script>
+	<script src="/assert/js/jquery.waypoints.min.js"></script>
+	<script src="/assert/js/jquery.stellar.min.js"></script>
+	<script src="/assert/js/owl.carousel.min.js"></script>
+	<script src="/assert/js/jquery.magnific-popup.min.js"></script>
+	<script src="/assert/js/aos.js"></script>
+	<script src="/assert/js/jquery.animateNumber.min.js"></script>
+	<script src="/assert/js/bootstrap-datepicker.js"></script>
+	<script src="/assert/js/jquery.timepicker.min.js"></script>
+	<script src="/assert/js/scrollax.min.js"></script>
+	<script
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+	<script src="/assert/js/google-map.js"></script>
+	<script src="/assert/js/main.js"></script>
+
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+		crossorigin="anonymous"></script>
+	<script src="/assert/js/script1.js"></script>
+	<script src="/assert/dangky.js"></script>
+</body>
+</html>

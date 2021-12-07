@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/layout/index :: dynamic(~{::main})}">
+
+<body>
+	<main>
+		<section class="home-slider owl-carousel">
+			<div class="slider-item bread-item"
+				style="background-image: url('/assert/images/bg_1.jpg');"
+				data-stellar-background-ratio="0.5">
+				<div class="overlay"></div>
+				<div class="container" data-scrollax-parent="true">
+					<div class="row slider-text align-items-end">
+						<div class="col-md-7 col-sm-12 ftco-animate mb-5">
+							<p class="breadcrumbs"
+								data-scrollax=" properties: { translateY: '70%', opacity: 1.6}">
+								<span class="mr-2"><a href="index.html">Trang chủ</a></span> <span>
+									Liên hệ</span>
+							</p>
+							<h1 class="mb-3"
+								data-scrollax=" properties: { translateY: '70%', opacity: .9}">LIÊN
+								HỆ</h1>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="ftco-section contact-section ftco-degree-bg">
+			<div class="container">
+				<div class="row d-flex mb-5 contact-info">
+					<div class="col-md-12 mb-4">
+						<h2 class="h4">Thông tin liên hệ</h2>
+					</div>
+					<div class="w-100"></div>
+					<div class="col-md-3">
+						<p>
+							<span>Địa chỉ:</span>288, Nguyễn Văn Linh, phường An Khánh, Ninh Kiều Cần Thơ
+						</p>
+					</div>
+					<div class="col-md-3">
+						<p>
+							<span>Số điện thoại:</span> <a href="tel://84 335 2730 73">+84 335 2730 73</a>
+						</p>
+					</div>
+					<div class="col-md-3">
+						<p>
+							<span>Email:</span> <a href="mailto:nghialtpc00727@fpt.edu.vn">nghialtpc00727@fpt.edu.vn</a>
+						</p>
+					</div>
+					<div class="col-md-3">
+						<p>
+							<span>Website</span> <a href="#">PC-Covid.com</a>
+						</p>
+					</div>
+				</div>
+				<div class="row block-9">
+					<div class="col-md-6 pr-md-5">
+						<form th:action="@{/lienhe}" method="post">
+							<div class="form-group">
+								<input name="hoten" type="text" class="form-control" placeholder="Họ và Tên">
+							</div>
+							<div class="form-group">
+								<input name="email" type="text" class="form-control" placeholder="Email">
+							</div>
+							<div class="form-group">
+								<input name="tieude" type="text" class="form-control" placeholder="Tiêu đề">
+							</div>
+							<div class="form-group">
+								<textarea name="noidung"  cols="30" rows="7" class="form-control"
+									placeholder="Nội dung"></textarea>
+							</div>
+							<div class="form-group">
+								<input type="submit" value="Gửi liên hệ"
+									class="btn btn-primary py-3 px-5">
+							</div>
+						</form>
+
+					</div>
+
+					<div class="col-md-6" id="map"></div>
+				</div>
+			</div>
+		</section>
+	</main>
+</body>
+</html>

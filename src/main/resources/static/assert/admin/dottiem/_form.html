@@ -1,0 +1,71 @@
+<div class="card">
+
+	<div class="card-body">
+		<section class="ftco-section">
+			<div class="container">
+				<div class="row justify-content-center mb-5 pb-5">
+					<div class="col-md-7 text-center heading-section ftco-animate">
+						<h2 class="mb-2">Quản lý đợt tiêm chủng</h2>
+
+					</div>
+				</div>
+				<form>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="exampleInputId">ID Đợt tiêm</label> <input
+									class="form-control" id="exampleInputId"
+									ng-model="form.iddottiem" placeholder="Nhập ID Đợt tiêm chủng">
+
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="exampleInputName">Ngày tiêm</label> <input
+									class="form-control" id="exampleInputData"
+									ng-model="form.ngaytiem" placeholder="Nhập ngày tiêm chủng"
+									type="date">
+
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="exampleInputHang">Địa điểm tiêm chủng</label> <input
+									class="form-control" id="exampleInputDiaDiem"
+									ng-model="form.diadiemtiem"
+									placeholder="Nhập địa điểm tiêm chủng">
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+
+								<label for="exampleInputHang">Vacxin</label>
+
+								<!-- <select ng-model="selectedName" ng-options="item for item in intems.vacxin"></select> -->
+								<select class="custom-select" ng-model="form.vacxin.idvacxin">
+									<option ng-repeat="vx in vaccine" ng-value="vx.idvacxin">{{vx.tenvacxin}}</option>
+								</select>
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-md-6">
+							<div class="button-group">
+								<br> <br>
+								<button type="submit" class="btn btn-primary" ng-click="reset()">Làm
+									mới</button>
+								<button type="submit" class="btn btn-success"
+									ng-click="create()">Thêm</button>
+								<button type="submit" class="btn btn-warning"
+									ng-click="update()">Sửa</button>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</section>
+	</div>
+</div>

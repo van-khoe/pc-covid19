@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/layout/index :: dynamic(~{::main})}">
+
+<body>
+	<main>
+		<section class="home-slider owl-carousel">
+			<div class="slider-item bread-item"
+				style="background-image: url('/assert/images/bg_1.jpg');"
+				data-stellar-background-ratio="0.5">
+				<div class="overlay"></div>
+				<div class="container" data-scrollax-parent="true">
+					<div class="row slider-text align-items-end">
+						<div class="col-md-7 col-sm-12 ftco-animate mb-5">
+							<p class="breadcrumbs"
+								data-scrollax=" properties: { translateY: '70%', opacity: 1.6}">
+								<span class="mr-2"><a href="index.html">Trang chủ</a></span> <span>
+									Đổi mật khẩu</span>
+							</p>
+							<h1 class="mb-3"
+								data-scrollax=" properties: { translateY: '70%', opacity: .9}">ĐỔI MẬT KHẨU</h1>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+
+
+		<div>
+			<div class="conteiner row">
+				<div class="card mb-3 col-lg-7 col-md-12 col-sm-12"
+					style="max-width: 560px;">
+					<div class="row g-0">
+						<div class="col-md-12">
+							<div class="card-body">
+								<h1 class="card-title"
+									style="color: blueviolet; font-weight: bolder;">ĐỔI MẬT KHẨU</h1>
+								<br>
+								<form th:action="@{/taikhoan/doimatkhau}" method="post"
+									th:object="${acc}">
+									<div class="row">
+										<div class="form-group col-sm-12">
+											<label for="">Tài khoản</label>
+											<input name="username" th:field=*{username} class="form-control" readonly="readonly" required="required">	
+										</div>
+										<div class="form-group col-sm-12">
+											<label for="">Mật khẩu cũ</label>
+											<input name="password" type="password" class="form-control">
+										</div>
+										<div class="form-group col-sm-12">
+											<label for="">Mật khẩu mới</label>
+											<input name="newpass" type="password" class="form-control">
+										</div>
+										<div class="form-group col-sm-12">
+											<label for="">Xác nhận mật khẩu</label>
+											<input name="conpass" type="password" class="form-control">
+										</div>
+										
+										<i th:text="${message}"></i>
+										<div class="form-group col-sm-12">
+											<br>
+
+											<button class="btn btn-primary">
+												<i class="bi bi-arrow-clockwise"></i> CẬP NHẬT
+											</button>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-6 col-md-12 col-sm-12">
+					<img
+						src="/assert/images/coronavirus-update-concept_23-2148729019.webp"
+						style="width: 100%; height: 750px;" alt="...">
+				</div>
+			</div>
+		</div>
+
+	</main>
+</body>
+</html>

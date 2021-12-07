@@ -1,0 +1,39 @@
+<div class="card">
+	<section class="ftco-section">
+    <div class="container">
+      <div class="row justify-content-center mb-5 pb-3">
+        <div class="col-md-7 text-center heading-section ftco-animate">
+          <h2 class="mb-2">Danh sách các đợt tiêm</h2>
+        </div>
+      </div>
+      <div class="row justify-content-center ftco-animate">
+        <div class="col-md-10">
+          <div class="carousel-testimony owl-carousel ftco-owl">
+
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">ID đợt tiêm</th>
+                  <th scope="col">Ngày tiêm</th>
+                  <th scope="col">Địa điểm tiêm chủng</th>
+                  <th scope="col">Vacxin</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="p in items">
+                  <td>{{p.iddottiem}}</td>
+                  <td>{{p.ngaytiem| date: 'dd-MM-yyyy'}}</td>
+                  <td>{{p.diadiemtiem}}</td>
+                  <td>{{p.vacxin.tenvacxin}}</td>
+                  <td><button type="submit" ng-click="edit(p)" class="btn btn-secondary">Chỉnh sửa</button></td>
+                </tr>
+            
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

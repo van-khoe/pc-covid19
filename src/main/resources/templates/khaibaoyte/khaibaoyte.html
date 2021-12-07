@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/layout/index :: dynamic(~{::main})}">
+
+<body>
+	<main>
+		<section class="home-slider owl-carousel">
+			<div class="slider-item bread-item"
+				style="background-image: url('/assert/images/bg_1.jpg');"
+				data-stellar-background-ratio="0.5">
+				<div class="overlay"></div>
+				<div class="container" data-scrollax-parent="true">
+					<div class="row slider-text align-items-end">
+						<div class="col-md-7 col-sm-12 ftco-animate mb-5">
+							<p class="breadcrumbs"
+								data-scrollax=" properties: { translateY: '70%', opacity: 1.6}">
+								<span class="mr-2"><a th:href="@{/}">Trang chủ</a></span> <span>Khai
+									báo y tế</span>
+							</p>
+							<h1 class="mb-3"
+								data-scrollax=" properties: { translateY: '70%', opacity: .9}">KHAI
+								BÁO Y TẾ</h1>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+
+		<section class="ftco-section">
+			<div class="container">
+				<div class="row justify-content-center mb-5 pb-3">
+					<div class="col-md-7 text-center heading-section ftco-animate">
+						<h2 class="mb-2" style="font-weight: bolder;">PHIẾU KHAI BÁO
+							Y TẾ</h2>
+					</div>
+				</div>
+				<div class="row justify-content-center ftco-animate"
+					style="border-radius: .25rem; padding: 10px; border: 1px solid rgb(231, 231, 231); box-shadow: 10px 10px 10px #b3b3b3; background-color: #FFFFFF;">
+					<div class="col-md-9">
+						<form th:action="@{/khaibaoyte}" method="post" th:object="${kb}">
+
+
+							<div class="form-row">
+							<div class="form-group col-md-6">
+									<label for="inputname4">Id khai báo y tế</label> <i
+										th:errors="*{idkhaibaoyte}"></i> <input class="form-control"
+										id="inputid" th:field="*{idkhaibaoyte}">
+								</div>
+							
+								<div class="form-group col-md-6">
+									<label for="inputname4">Họ & tên</label> <i
+										th:errors="*{hoten}"></i> <input class="form-control"
+										id="inputname4" th:field="*{hoten}">
+								</div>
+
+								<div class="form-group col-md-6">
+									<label for="inputbirthday4">Ngày sinh</label><i
+										th:errors="*{ngaysinh}"></i> <input type="date"
+										class="form-control" id="inputbirthday4"
+										th:field="*{ngaysinh}">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="inputCMND">CMND/CCCD</label><i th:errors="*{cmnd}"></i>
+								<input class="form-control" id="inputCMND" th:field="*{cmnd}">
+							</div>
+							<div class="form-group">
+								<label for="inputAddress">Địa chỉ</label><i
+									th:errors="*{diachi}"></i> <input class="form-control"
+									id="inputAddress" th:field="*{diachi}">
+							</div>
+
+
+							<fieldset class="form-group row">
+								<legend class="col-form-label col-sm-2 float-sm-left pt-0">Giới
+									tính</legend>
+								<i th:errors="*{gioitinh}"></i>
+								<div class="col-sm-10">
+
+
+
+									<div class="form-check-inline">
+										<input class="form-check-input" type="radio"
+											th:field="*{gioitinh}" value="1"> <label
+											class="form-check-label" for="gridRadios1"> Nam </label>
+									</div>
+									<div class="form-check-inline">
+										<input class="form-check-input" type="radio"
+											th:field="*{gioitinh}" value="0"> <label
+											class="form-check-label" for="gridRadios2"> Nữ </label>
+									</div>
+								</div>
+							</fieldset>
+							<fieldset class="form-group row">
+								<legend class="col-form-label float-sm-left pt-0">Có
+									tiếp xúc với người mắc hoặc trở về từ vùng dịch trong vòng 14
+									ngày hay không?</legend>
+								<i th:errors="*{tiepxuc}"></i>
+								<div class="col-sm-10">
+
+									<div class="form-check-inline">
+										<input class="form-check-input" type="radio"
+											th:field="*{tiepxuc}" value="1"> <label
+											class="form-check-label" for="gridRadios1"> Có </label>
+									</div>
+									<div class="form-check-inline">
+										<input class="form-check-input" type="radio"
+											th:field="*{tiepxuc}" value="0"> <label
+											class="form-check-label" for="gridRadios2"> Không </label>
+									</div>
+								</div>
+							</fieldset>
+							<fieldset class="form-group row">
+								<legend class="col-form-label float-sm-left pt-0">Trạng
+									thái trong vòng 14 ngày có các dấu hiệu:</legend>
+								<i th:errors="*{bieuhien}"></i>
+								<div class="col-sm-10">
+									<div class="form-check-inline">
+										<input class="form-check-input" type="checkbox"
+											th:field="*{bieuhien}" value="1"> <label
+											class="form-check-label" for="gridRadios1"> Sốt cao </label>
+									</div>
+									<div class="form-check-inline">
+										<input class="form-check-input" type="checkbox"
+											th:field="*{bieuhien}" value="0"> <label
+											class="form-check-label" for="gridRadios2"> Ho </label>
+									</div>
+								</div>
+							</fieldset>
+							<button type="submit" class="btn btn-primary">Hòan thành
+								khai báo y tế</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+
+</body>
+</html>

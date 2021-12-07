@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/layout/index :: dynamic(~{::main})}">
+
+<body>
+	<main>
+		<section class="home-slider owl-carousel">
+			<div class="slider-item bread-item"
+				style="background-image: url('/assert/images/bg_1.jpg');"
+				data-stellar-background-ratio="0.5">
+				<div class="overlay"></div>
+				<div class="container" data-scrollax-parent="true">
+					<div class="row slider-text align-items-end">
+						<div class="col-md-7 col-sm-12 ftco-animate mb-5">
+							<p class="breadcrumbs"
+								data-scrollax=" properties: { translateY: '70%', opacity: 1.6}">
+								<span class="mr-2"><a th:href="@{/}">Trang chủ</a></span> <span>Tin
+									tức</span>
+							</p>
+							<h1 class="mb-3"
+								data-scrollax=" properties: { translateY: '70%', opacity: .9}">DANH
+								SÁCH TIN TỨC</h1>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="ftco-section">
+			<div class="container">
+				<div class="row justify-content-center mb-5 pb-3">
+					<div class="col-md-7 text-center heading-section ftco-animate">
+						<h2 class="mb-2" style="font-weight: bolder;">DANH SÁCH CÁC
+							ĐỢT TIÊM CHỦNG</h2>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<table class="table table-hover">
+							<thead class="thead-dark">
+								<tr>
+									<th scope="col">Đợt tiêm</th>
+									<th scope="col">Địa điểm tiêm</th>
+									<th scope="col">Tên vaccine</th>
+									<th scope="col">Ngày tiêm</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr th:each="dt : ${dottiem}" th:object="${dt}">
+									<th>[[*{iddottiem}]]</th>
+									<td>[[*{diadiemtiem}]]</td>
+									<td>[[*{vacxin.tenvacxin}]]</td>
+									<td>[[*{ngaytiem}]]</td>
+								</tr>
+							</tbody>
+						</table>
+
+					</div>
+				</div>
+
+				<div class="row justify-content-center mb-5 pb-3">
+					<div class="col-md-7 text-center heading-section ftco-animate">
+						<h2 class="mb-2" style="font-weight: bolder;">TIN TỨC
+							COVID-19</h2>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-8">
+						<div class="row">
+							<div class="col-md-12 ftco-animate" th:each="b : ${bl.content}"
+								th:object="${b}">
+								<div class="blog-entry">
+									<a th:href="@{|/chitiettintuc?idtintuc=*{idblog}|}"
+										class="block-20"> <img th:src="@{|/assert/images/*{hinhanh}|}"
+										class="img-fluid" alt="" style="width: 100%">
+									</a>
+									<div class="text d-flex py-4">
+										<div class="meta mb-3">
+											<div>
+												<p>[[*{ngaytao}]]</p>
+											</div>
+											<div>
+												<p>[[*{account.hoten}]]</p>
+											</div>
+
+										</div>
+										<div class="desc pl-sm-3 pl-md-5">
+											<h3 class="heading">
+												<a th:href="@{|/chitiettintuc?idtintuc=*{idblog}|}">[[*{tieude}]]</a>
+											</h3>
+											<p class="noidungblog">[[*{noidung}]]</p>
+											<p>
+												<a th:href="@{|/chitiettintuc?idtintuc=*{idblog}|}"
+													class="btn btn-primary btn-outline-primary">Xem thêm</a>
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row mt-5">
+							<div class="col">
+
+								<div class="pagination-area">
+									<ul class="pagination">
+										<li><a class="btn btn-primary" th:href="@{|/tintuc?p=0|}">&lt;
+												First</a></li>
+										<li><a class="btn btn-primary"
+											th:href="@{|/tintuc?p=${bl.number-1 < 0 ? bl.totalPages -1 : bl.number-1}|}">&lt;&lt;</a></li>
+										<li><a class="btn btn-primary"
+											th:href="@{|/tintuc?p=${bl.number+1 > bl.totalPages-1 ? 0 : bl.number+1}|}">&gt;&gt;</a>
+										</li>
+										<li><a class="btn btn-primary"
+											th:href="@{|/tintuc?p=${bl.totalPages-1}|}">Last &gt;</a></li>
+									</ul>
+								</div>
+
+							</div>
+
+
+						</div>
+					</div>
+					<!-- END: col-md-8 -->
+					<div class="col-md-4 sidebar ftco-animate">
+						<div class="sidebar-box">
+							<form th:action="@{/tintuc}" class="search-form">
+								<div class="form-group">
+									<span class="icon fa fa-search"></span> <input
+										class="form-control" name="timkiem"
+										placeholder="Tìm kiếm bài viết">
+								</div>
+							</form>
+						</div>
+
+						<div class="sidebar-box ftco-animate">
+							<h3>Số điện thoại các bệnh viện</h3>
+							<div th:replace="/layout/_covid-phone.html"></div>
+						</div>
+
+						<div class="sidebar-box ftco-animate">
+							<h3>Bài viết gần đây</h3>
+							<div class="block-21 mb-4 d-flex" th:each="nt : ${ganday}"
+								th:object="${nt}">
+								<a class="blog-img mr-4"
+									th:href="@{|/chitiettintuc?idtintuc=*{idblog}|}"> 
+									<img th:src="@{|/assert/images/*{hinhanh}|}" class="img-fluid" alt=""
+									style="width: 100%">
+								</a>
+								<div class="text">
+									<h3 class="heading">
+										<a th:href="@{|/chitiettintuc?idtintuc=*{idblog}|}">[[*{tieude}]]</a>
+									</h3>
+									<div class="meta">
+										<div>
+											<p>
+												<span class="icon-calendar"></span> [[*{ngaytao}]]
+											</p>
+										</div>
+										<div>
+											<p>
+												<span class="icon-person"></span> [[*{account.hoten}]]
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/layout/index :: dynamic(~{::main})}">
+
+<body>
+	<main>
+		<section class="home-slider owl-carousel">
+			<div class="slider-item bread-item"
+				style="background-image: url('/assert/images/bg_1.jpg');"
+				data-stellar-background-ratio="0.5">
+				<div class="overlay"></div>
+				<div class="container" data-scrollax-parent="true">
+					<div class="row slider-text align-items-end">
+						<div class="col-md-7 col-sm-12 ftco-animate mb-5">
+							<p class="breadcrumbs"
+								data-scrollax=" properties: { translateY: '70%', opacity: 1.6}">
+								<span class="mr-2"><a th:href="@{/}">Trang chủ</a></span> <span>Cập nhật tài khoản</span>
+							</p>
+							<h1 class="mb-3"
+								data-scrollax=" properties: { translateY: '70%', opacity: .9}">Cập
+								nhật tài khoản</h1>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<div>
+			<div class="conteiner row">
+				<div class="card mb-3 col-lg-7 col-md-7 col-sm-7"
+					>
+					<div class="row g-0">
+						<div class="col-md-12">
+							<div class="card-body">
+								<h1 class="card-title"
+									style="color: #3399FF; font-weight: bolder;">CẬP NHẬT
+									TÀI KHOẢN</h1>
+								<br>
+								<form th:action="@{/taikhoan/capnhat}" method="post"
+									th:object="${acc}">
+									<div class="row">
+										<div class="form-group col-sm-12">
+											<label for=""></label> <i th:errors="*{username}"></i> <input
+												type="text" class="form-control" readonly="readonly"
+												th:field="*{username}">
+
+										</div>
+										<div class="form-group col-sm-12">
+											<label for=""></label> <i th:errors="*{hoten}"></i> <input
+												type="text" th:field="*{hoten}" class="form-control"
+												placeholder="Họ và tên" />
+
+										</div>
+										<div class="form-group col-sm-12">
+											<label for=""></label> <i th:errors="*{diachi}"></i> <input
+												type="text" th:field="*{diachi}" class="form-control"
+												placeholder="Địa chỉ" />
+
+										</div>
+										<div class="form-group col-sm-12">
+										 <br>
+											<fieldset class="form-group row">
+												<legend class="col-form-label col-sm-3 float-sm-left pt-0">Giới
+													tính</legend>
+												<i th:errors="*{gioitinh}"></i>
+												<div class="col-sm-9">
+													<div class="form-check-inline">
+														<input class="form-check-input" type="radio"
+															th:field="*{gioitinh}" value="1"> <label
+															class="form-check-label" for="gridRadios1"> Nam </label>
+													</div>
+													<div class="form-check-inline">
+														<input class="form-check-input" type="radio"
+															th:field="*{gioitinh}" value="0"> <label
+															class="form-check-label" for="gridRadios2"> Nữ </label>
+													</div>
+
+												</div>
+											</fieldset>
+											
+										</div>
+										<div class="form-group col-sm-12">
+											<label for=""></label> <i th:errors="*{sdt}"></i> <input
+												type="text" th:field="*{sdt}" class="form-control"
+												placeholder="Số điện thoại" />
+
+										</div>
+
+										<div class="form-group col-sm-12">
+											<label for=""></label> <i th:errors="*{ngaysinh}"></i> <input
+												type="date" th:field="*{ngaysinh}" class="form-control"
+												placeholder="Ngày sinh" />
+
+										</div>
+										<i th:text="${message}"></i>
+										<div class="form-group col-sm-12">
+											<br>
+
+											<button class="btn btn-primary">
+												<i class="bi bi-arrow-clockwise"></i> CẬP NHẬT
+											</button>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-5 col-md-5 col-sm-5">
+					<img
+						src="/assert/images/gallery-1.jpg"
+						style="width: 100%; height: 785px;" alt="...">
+				</div>
+			</div>
+		</div>
+	</main>
+</body>
+</html>
