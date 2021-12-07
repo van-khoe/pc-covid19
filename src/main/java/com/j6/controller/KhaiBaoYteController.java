@@ -29,7 +29,7 @@ public class KhaiBaoYteController {
 	@GetMapping("/khaibaoyte")
 	public String home(Model model, @RequestParam("kb") Optional<Long> idkhaibao) {
 		model.addAttribute("khaibaoyte", true);
-		if(idkhaibao.isEmpty()) {
+		if(!idkhaibao.isPresent()) {
 			khaibaoyte kb = new khaibaoyte();
 			model.addAttribute("kb",kb);
 		}else {
