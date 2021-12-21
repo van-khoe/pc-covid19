@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class HomeController {
-	@RequestMapping("/covid")
+	@RequestMapping("/")
 	public String home(Model model) {
 		model.addAttribute("trangchu", true);
 		return "redirect:/home";
