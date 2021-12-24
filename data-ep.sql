@@ -18,7 +18,7 @@
 --
 -- Table structure for table `blog`
 --
-
+USE vmsuzbpghosting_pcCovid;
 DROP TABLE IF EXISTS `blog`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
@@ -32,7 +32,7 @@ CREATE TABLE `blog` (
   PRIMARY KEY (`idblog`,`nguoitao`),
   KEY `nguoitao_idx` (`nguoitao`),
   CONSTRAINT `nguoitao` FOREIGN KEY (`nguoitao`) REFERENCES `taikhoan` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -61,7 +61,7 @@ CREATE TABLE `capquyen` (
   KEY `fk_capquyen_vaitro1_idx` (`vaitro_idvaitro`),
   CONSTRAINT `fk_capquyen_taikhoan` FOREIGN KEY (`taikhoan_username`) REFERENCES `taikhoan` (`username`),
   CONSTRAINT `fk_capquyen_vaitro1` FOREIGN KEY (`vaitro_idvaitro`) REFERENCES `vaitro` (`idvaitro`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -89,7 +89,7 @@ CREATE TABLE `dottiem` (
   PRIMARY KEY (`iddottiem`,`vacxin_idvacxin`),
   KEY `fk_dottiem_vacxin1_idx` (`vacxin_idvacxin`),
   CONSTRAINT `fk_dottiem_vacxin1` FOREIGN KEY (`vacxin_idvacxin`) REFERENCES `vacxin` (`idvacxin`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -123,7 +123,7 @@ CREATE TABLE `khaibaoyte` (
   PRIMARY KEY (`idkhaibaoyte`,`taikhoan_username`),
   KEY `fk_khaibaoyte_taikhoan1_idx` (`taikhoan_username`),
   CONSTRAINT `fk_khaibaoyte_taikhoan1` FOREIGN KEY (`taikhoan_username`) REFERENCES `taikhoan` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -151,7 +151,7 @@ CREATE TABLE `lichtestcd` (
   `mauduongtinh` int unsigned NOT NULL,
   `tinhthanh` varchar(50) NOT NULL,
   PRIMARY KEY (`idlichtestcd`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -183,7 +183,7 @@ CREATE TABLE `nguoitiem` (
   PRIMARY KEY (`idnguoitiem`,`taikhoan_username`),
   KEY `fk_dangkytiemchung_taikhoan1_idx` (`taikhoan_username`),
   CONSTRAINT `fk_dangkytiemchung_taikhoan1` FOREIGN KEY (`taikhoan_username`) REFERENCES `taikhoan` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -214,7 +214,7 @@ CREATE TABLE `phieutiem` (
   KEY `fk_phieutiem_dottiem1_idx` (`dottiem_iddottiem`),
   CONSTRAINT `fk_phieudangkylichhen_dangkytiemchung1` FOREIGN KEY (`dangkytiemchung_iddangkytiemchung`) REFERENCES `nguoitiem` (`idnguoitiem`),
   CONSTRAINT `fk_phieutiem_dottiem1` FOREIGN KEY (`dottiem_iddottiem`) REFERENCES `dottiem` (`iddottiem`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -245,7 +245,7 @@ CREATE TABLE `taikhoan` (
   `trangthai` tinyint NOT NULL,
   `email` varchar(45) NOT NULL,
   PRIMARY KEY (`username`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -272,7 +272,7 @@ CREATE TABLE `vacxin` (
   `tenquocgia` varchar(45) NOT NULL,
   `thoigianmui2` int NOT NULL,
   PRIMARY KEY (`idvacxin`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -296,7 +296,7 @@ CREATE TABLE `vaitro` (
   `idvaitro` varchar(10) NOT NULL,
   `ten` varchar(45) NOT NULL,
   PRIMARY KEY (`idvaitro`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
