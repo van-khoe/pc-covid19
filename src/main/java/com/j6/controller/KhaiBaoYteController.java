@@ -33,7 +33,7 @@ public class KhaiBaoYteController {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		Date newdate = new Date("2021/01/01");
 		model.addAttribute("newd", sdf.format(newdate));
-		if(!idkhaibao.isEmpty()) {
+		if(idkhaibao == null) {
 			khaibaoyte khaibaoytee = khaibao.findById(idkhaibao.get());
 			model.addAttribute("kb",khaibaoytee);
 		}else {
