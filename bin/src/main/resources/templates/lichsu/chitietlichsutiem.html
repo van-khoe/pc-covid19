@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/layout/index :: dynamic(~{::main})}">
+
+<body>
+	<main>
+		<section class="home-slider owl-carousel">
+			<div class="slider-item bread-item"
+				style="background-image: url('/assert/images/bg_1.jpg');"
+				data-stellar-background-ratio="0.5">
+				<div class="overlay"></div>
+				<div class="container" data-scrollax-parent="true">
+					<div class="row slider-text align-items-end">
+						<div class="col-md-7 col-sm-12 ftco-animate mb-5">
+							<p class="breadcrumbs"
+								data-scrollax=" properties: { translateY: '70%', opacity: 1.6}">
+								<span class="mr-2"><a th:href="@{/home}">Trang chủ</a></span><span>/
+									Lịch sử người tiêm chủng</span>
+							</p>
+							<h1 class="mb-3"
+								data-scrollax=" properties: { translateY: '70%', opacity: .9}">LỊCH
+								SỬ TIÊM VACCIN</h1>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<div class="conteiner"
+			th:style="${somui == 0 ? 'width: 30%; margin-left: 35%; background-color: white;' : somui == 1 ? 'width: 30%; margin-left: 35%; background-color: #e6cb00;' : 'width: 30%; margin-left: 35%; background-color: #008800;'}">
+			<h4 class="text-center"
+				th:style="${somui == 0 || somui == 1 ? 'margin-top: -30px; color: black; font-family: sans-serif;' : 'margin-top: -30px; color: white; font-family: sans-serif;'}">CHỨNG
+				NHẬN NGỪA COVID</h4>
+			<div class="text-center" th:if="${somui == 2}">
+				<img alt=""
+					src="https://cachbothuocla.vn/wp-content/uploads/2019/03/tick-xanh.png"
+					style="width: 15%">
+			</div>
+			<div class="text-center" th:if="${somui == 1}">
+				<img alt=""
+					src="https://keodannhua.com/wp-content/uploads/2018/01/tick-yellow.png"
+					style="width: 15%">
+			</div>
+			<div class="text-center" th:if="${somui == 0}">
+				<img alt=""
+					src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Flat_cross_icon.svg/1200px-Flat_cross_icon.svg.png"
+					style="width: 15%">
+			</div>
+			<div class="text-center">
+				<hr
+					th:style="${somui == 0 || somui == 1 ? 'color: black;height: 5px' : 'color: white; height: 5px'}">
+				<h5 class="card-title text-center"
+					th:style="${somui == 0 || somui == 1 ? 'color: black;' : 'color: white;'}">ĐÃ
+					TIÊM [[${somui}]] MŨI VẮC XIN</h5>
+				<hr
+					th:style="${somui == 0 || somui == 1 ? 'color: black;height: 5px' : 'color: white; height: 5px'}">
+			</div>
+			<div class="card">
+				<div class="card-header text-center">
+					<h5>Thông tin cá nhân</h5>
+				</div>
+				<div class="card-body">
+					<div class="card-text">
+						<div class="row">
+							<div class="form-group col-sm-12">
+								<label for="exampleName">Họ & tên</label> <input
+									th:value="${nt.hoten}" class="form-control" id="exampleName"
+									readonly="readonly">
+							</div>
+						</div>
+						<div class="row">
+							<div class="form-group col-sm-12">
+								<label for="exampleDotTiem">Ngày sinh</label> <input
+									th:value="${nt.ngaysinh}" class="form-control"
+									id="exampleDotTiem" readonly="readonly">
+							</div>
+						</div>
+						<div class="row">
+							<div class="form-group col-sm-12">
+								<label for="exampleDotTiem">CCCD</label> <input
+									th:value="${nt.cmnd}" class="form-control" id="exampleDotTiem"
+									readonly="readonly">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="conteiner">
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th scope="col">Người tiêm</th>
+						<th scope="col">Ngày tiêm</th>
+						<th scope="col">Địa điểm tiêm</th>
+						<th scope="col">Loại vaccin</th>
+						<th scope="col">Cơ sở y tế</th>
+						<th scope="col">Tình trạng tiêm</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="p : ${nguoitiem}">
+						<th scope="row">[[${p.dangkytiemchung.hoten}]]</th>
+						<td>[[${p.dottiem.ngaytiem}]]</td>
+						<td>[[${p.diachi}]]</td>
+						<td>[[${p.dottiem.vacxin.tenvacxin}]]</td>
+						<td>[[${p.cosoyte}]]</td>
+						<td>[[${p.dottiem.ngaytiem < ngay? 'Đã hoàn thành': 'Chưa
+							hoàn thành'} ]]</td>
+					</tr>
+
+				</tbody>
+			</table>
+		</div>
+	</main>
+</body>
+</html>

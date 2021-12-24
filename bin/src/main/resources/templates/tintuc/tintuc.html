@@ -14,11 +14,12 @@
 						<div class="col-md-7 col-sm-12 ftco-animate mb-5">
 							<p class="breadcrumbs"
 								data-scrollax=" properties: { translateY: '70%', opacity: 1.6}">
-								<span class="mr-2"><a href="index.html">Home</a></span> <span>Blog</span>
+								<span class="mr-2"><a th:href="@{/home}">Trang chủ</a></span> <span>Tin
+									tức</span>
 							</p>
 							<h1 class="mb-3"
-								data-scrollax=" properties: { translateY: '70%', opacity: .9}">Read
-								Our Blog</h1>
+								data-scrollax=" properties: { translateY: '70%', opacity: .9}">DANH
+								SÁCH TIN TỨC</h1>
 						</div>
 					</div>
 				</div>
@@ -27,214 +28,70 @@
 
 		<section class="ftco-section">
 			<div class="container">
+				<div class="row justify-content-center mb-5 pb-3">
+					<div class="col-md-7 text-center heading-section ftco-animate">
+						<h2 class="mb-2" style="font-weight: bolder;">DANH SÁCH CÁC
+							ĐỢT TIÊM CHỦNG</h2>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<table class="table table-hover">
+							<thead class="thead-dark">
+								<tr>
+									<th scope="col">Đợt tiêm</th>
+									<th scope="col">Địa điểm tiêm</th>
+									<th scope="col">Tên vaccine</th>
+									<th scope="col">Ngày tiêm</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr th:each="dt : ${dottiem}" th:object="${dt}">
+									<th>[[*{iddottiem}]]</th>
+									<td>[[*{diadiemtiem}]]</td>
+									<td>[[*{vacxin.tenvacxin}]]</td>
+									<td>[[*{ngaytiem}]]</td>
+								</tr>
+							</tbody>
+						</table>
+
+					</div>
+				</div>
+
+				<div class="row justify-content-center mb-5 pb-3">
+					<div class="col-md-7 text-center heading-section ftco-animate">
+						<h2 class="mb-2" style="font-weight: bolder;">TIN TỨC
+							COVID-19</h2>
+					</div>
+				</div>
 				<div class="row">
 					<div class="col-md-8">
 						<div class="row">
-							<div class="col-md-12 ftco-animate">
+							<div class="col-md-12 ftco-animate" th:each="b : ${bl.content}"
+								th:object="${b}">
 								<div class="blog-entry">
-									<a href="blog-single.html" class="block-20"
-										style="background-image: url('/assert/images/image_1.jpg');">
+									<a th:href="@{|/chitiettintuc?idtintuc=*{idblog}|}"
+										class="block-20"> <img th:src="@{|/assert/images/*{hinhanh}|}"
+										class="img-fluid" alt="" style="width: 100%">
 									</a>
 									<div class="text d-flex py-4">
 										<div class="meta mb-3">
 											<div>
-												<a href="#">Sep. 20, 2018</a>
+												<p>[[*{ngaytao}]]</p>
 											</div>
 											<div>
-												<a href="#">Admin</a>
+												<p>[[*{account.hoten}]]</p>
 											</div>
-											<div>
-												<a href="#" class="meta-chat"><span class="icon-chat"></span>
-													3</a>
-											</div>
+
 										</div>
 										<div class="desc pl-sm-3 pl-md-5">
 											<h3 class="heading">
-												<a href="#">Even the all-powerful Pointing has no
-													control about the blind texts</a>
+												<a th:href="@{|/chitiettintuc?idtintuc=*{idblog}|}">[[*{tieude}]]</a>
 											</h3>
-											<p>Far far away, behind the word mountains, far from the
-												countries Vokalia and Consonantia, there live the blind
-												texts. Separated they live in Bookmarksgrove right at the
-												coast of the Semantics, a large language ocean.</p>
+											<p class="noidungblog">[[*{noidung}]]</p>
 											<p>
-												<a href="blog-single.html"
-													class="btn btn-primary btn-outline-primary">Read more</a>
-											</p>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-12 ftco-animate">
-								<div class="blog-entry" data-aos-delay="100">
-									<a href="blog-single.html" class="block-20"
-										style="background-image: url('/assert/images/image_2.jpg');">
-									</a>
-									<div class="text d-flex py-4">
-										<div class="meta mb-3">
-											<div>
-												<a href="#">Sep. 20, 2018</a>
-											</div>
-											<div>
-												<a href="#">Admin</a>
-											</div>
-											<div>
-												<a href="#" class="meta-chat"><span class="icon-chat"></span>
-													3</a>
-											</div>
-										</div>
-										<div class="desc pl-sm-3 pl-md-5">
-											<h3 class="heading">
-												<a href="#">Even the all-powerful Pointing has no
-													control about the blind texts</a>
-											</h3>
-											<p>Far far away, behind the word mountains, far from the
-												countries Vokalia and Consonantia, there live the blind
-												texts. Separated they live in Bookmarksgrove right at the
-												coast of the Semantics, a large language ocean.</p>
-											<p>
-												<a href="blog-single.html"
-													class="btn btn-primary btn-outline-primary">Read more</a>
-											</p>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-12 ftco-animate">
-								<div class="blog-entry" data-aos-delay="200">
-									<a href="blog-single.html" class="block-20"
-										style="background-image: url('/assert/images/image_3.jpg');">
-									</a>
-									<div class="text d-flex py-4">
-										<div class="meta mb-3">
-											<div>
-												<a href="#">Sep. 20, 2018</a>
-											</div>
-											<div>
-												<a href="#">Admin</a>
-											</div>
-											<div>
-												<a href="#" class="meta-chat"><span class="icon-chat"></span>
-													3</a>
-											</div>
-										</div>
-										<div class="desc pl-sm-3 pl-md-5">
-											<h3 class="heading">
-												<a href="#">Even the all-powerful Pointing has no
-													control about the blind texts</a>
-											</h3>
-											<p>Far far away, behind the word mountains, far from the
-												countries Vokalia and Consonantia, there live the blind
-												texts. Separated they live in Bookmarksgrove right at the
-												coast of the Semantics, a large language ocean.</p>
-											<p>
-												<a href="blog-single.html"
-													class="btn btn-primary btn-outline-primary">Read more</a>
-											</p>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-12 ftco-animate">
-								<div class="blog-entry">
-									<a href="blog-single.html" class="block-20"
-										style="background-image: url('/assert/images/image_4.jpg');">
-									</a>
-									<div class="text d-flex py-4">
-										<div class="meta mb-3">
-											<div>
-												<a href="#">Sep. 20, 2018</a>
-											</div>
-											<div>
-												<a href="#">Admin</a>
-											</div>
-											<div>
-												<a href="#" class="meta-chat"><span class="icon-chat"></span>
-													3</a>
-											</div>
-										</div>
-										<div class="desc pl-sm-3 pl-md-5">
-											<h3 class="heading">
-												<a href="#">Even the all-powerful Pointing has no
-													control about the blind texts</a>
-											</h3>
-											<p>Far far away, behind the word mountains, far from the
-												countries Vokalia and Consonantia, there live the blind
-												texts. Separated they live in Bookmarksgrove right at the
-												coast of the Semantics, a large language ocean.</p>
-											<p>
-												<a href="blog-single.html"
-													class="btn btn-primary btn-outline-primary">Read more</a>
-											</p>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-12 ftco-animate">
-								<div class="blog-entry" data-aos-delay="100">
-									<a href="blog-single.html" class="block-20"
-										style="background-image: url('/assert/images/image_5.jpg');">
-									</a>
-									<div class="text d-flex py-4">
-										<div class="meta mb-3">
-											<div>
-												<a href="#">Sep. 20, 2018</a>
-											</div>
-											<div>
-												<a href="#">Admin</a>
-											</div>
-											<div>
-												<a href="#" class="meta-chat"><span class="icon-chat"></span>
-													3</a>
-											</div>
-										</div>
-										<div class="desc pl-sm-3 pl-md-5">
-											<h3 class="heading">
-												<a href="#">Even the all-powerful Pointing has no
-													control about the blind texts</a>
-											</h3>
-											<p>Far far away, behind the word mountains, far from the
-												countries Vokalia and Consonantia, there live the blind
-												texts. Separated they live in Bookmarksgrove right at the
-												coast of the Semantics, a large language ocean.</p>
-											<p>
-												<a href="blog-single.html"
-													class="btn btn-primary btn-outline-primary">Read more</a>
-											</p>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-12 ftco-animate">
-								<div class="blog-entry" data-aos-delay="200">
-									<a href="blog-single.html" class="block-20"
-										style="background-image: url('/assert/images/image_6.jpg');">
-									</a>
-									<div class="text d-flex py-4">
-										<div class="meta mb-3">
-											<div>
-												<a href="#">Sep. 20, 2018</a>
-											</div>
-											<div>
-												<a href="#">Admin</a>
-											</div>
-											<div>
-												<a href="#" class="meta-chat"><span class="icon-chat"></span>
-													3</a>
-											</div>
-										</div>
-										<div class="desc pl-sm-3 pl-md-5">
-											<h3 class="heading">
-												<a href="#">Even the all-powerful Pointing has no
-													control about the blind texts</a>
-											</h3>
-											<p>Far far away, behind the word mountains, far from the
-												countries Vokalia and Consonantia, there live the blind
-												texts. Separated they live in Bookmarksgrove right at the
-												coast of the Semantics, a large language ocean.</p>
-											<p>
-												<a href="blog-single.html"
-													class="btn btn-primary btn-outline-primary">Read more</a>
+												<a th:href="@{|/chitiettintuc?idtintuc=*{idblog}|}"
+													class="btn btn-primary btn-outline-primary">Xem thêm</a>
 											</p>
 										</div>
 									</div>
@@ -243,133 +100,73 @@
 						</div>
 						<div class="row mt-5">
 							<div class="col">
-								<div class="block-27">
-									<ul>
-										<li><a href="#">&lt;</a></li>
-										<li class="active"><span>1</span></li>
-										<li><a href="#">2</a></li>
-										<li><a href="#">3</a></li>
-										<li><a href="#">4</a></li>
-										<li><a href="#">5</a></li>
-										<li><a href="#">&gt;</a></li>
+
+								<div class="pagination-area">
+									<ul class="pagination">
+										<li><a class="btn btn-primary" th:href="@{|/tintuc?p=0|}">&lt;
+												First</a></li>
+										<li><a class="btn btn-primary"
+											th:href="@{|/tintuc?p=${bl.number-1 < 0 ? bl.totalPages -1 : bl.number-1}|}">&lt;&lt;</a></li>
+										<li><a class="btn btn-primary"
+											th:href="@{|/tintuc?p=${bl.number+1 > bl.totalPages-1 ? 0 : bl.number+1}|}">&gt;&gt;</a>
+										</li>
+										<li><a class="btn btn-primary"
+											th:href="@{|/tintuc?p=${bl.totalPages-1}|}">Last &gt;</a></li>
 									</ul>
 								</div>
+
 							</div>
+
+
 						</div>
 					</div>
 					<!-- END: col-md-8 -->
 					<div class="col-md-4 sidebar ftco-animate">
 						<div class="sidebar-box">
-							<form action="#" class="search-form">
+							<form th:action="@{/tintuc}" class="search-form">
 								<div class="form-group">
-									<span class="icon fa fa-search"></span> <input type="text"
-										class="form-control"
-										placeholder="Type a keyword and hit enter">
+									<span class="icon fa fa-search"></span> <input
+										class="form-control" name="timkiem"
+										placeholder="Tìm kiếm bài viết">
 								</div>
 							</form>
 						</div>
+
 						<div class="sidebar-box ftco-animate">
-							<div class="categories">
-								<h3>Categories</h3>
-								<li><a href="#">Food <span>(12)</span></a></li>
-								<li><a href="#">Dish <span>(22)</span></a></li>
-								<li><a href="#">Desserts <span>(37)</span></a></li>
-								<li><a href="#">Drinks <span>(42)</span></a></li>
-								<li><a href="#">Ocassion <span>(14)</span></a></li>
-							</div>
+							<h3>Số điện thoại các bệnh viện</h3>
+							<div th:replace="/layout/_covid-phone.html"></div>
 						</div>
 
 						<div class="sidebar-box ftco-animate">
-							<h3>Recent Blog</h3>
-							<div class="block-21 mb-4 d-flex">
+							<h3>Bài viết gần đây</h3>
+							<div class="block-21 mb-4 d-flex" th:each="nt : ${ganday}"
+								th:object="${nt}">
 								<a class="blog-img mr-4"
-									style="background-image: url(/assert/images/image_1.jpg);"></a>
+									th:href="@{|/chitiettintuc?idtintuc=*{idblog}|}"> 
+									<img th:src="@{|/assert/images/*{hinhanh}|}" class="img-fluid" alt=""
+									style="width: 100%">
+								</a>
 								<div class="text">
 									<h3 class="heading">
-										<a href="#">Even the all-powerful Pointing has no control
-											about the blind texts</a>
+										<a th:href="@{|/chitiettintuc?idtintuc=*{idblog}|}">[[*{tieude}]]</a>
 									</h3>
 									<div class="meta">
 										<div>
-											<a href="#"><span class="icon-calendar"></span> July 12,
-												2018</a>
+											<p>
+												<span class="icon-calendar"></span> [[*{ngaytao}]]
+											</p>
 										</div>
 										<div>
-											<a href="#"><span class="icon-person"></span> Admin</a>
-										</div>
-										<div>
-											<a href="#"><span class="icon-chat"></span> 19</a>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="block-21 mb-4 d-flex">
-								<a class="blog-img mr-4"
-									style="background-image: url(/assert/images/image_2.jpg);"></a>
-								<div class="text">
-									<h3 class="heading">
-										<a href="#">Even the all-powerful Pointing has no control
-											about the blind texts</a>
-									</h3>
-									<div class="meta">
-										<div>
-											<a href="#"><span class="icon-calendar"></span> July 12,
-												2018</a>
-										</div>
-										<div>
-											<a href="#"><span class="icon-person"></span> Admin</a>
-										</div>
-										<div>
-											<a href="#"><span class="icon-chat"></span> 19</a>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="block-21 mb-4 d-flex">
-								<a class="blog-img mr-4"
-									style="background-image: url(/assert/images/image_3.jpg);"></a>
-								<div class="text">
-									<h3 class="heading">
-										<a href="#">Even the all-powerful Pointing has no control
-											about the blind texts</a>
-									</h3>
-									<div class="meta">
-										<div>
-											<a href="#"><span class="icon-calendar"></span> July 12,
-												2018</a>
-										</div>
-										<div>
-											<a href="#"><span class="icon-person"></span> Admin</a>
-										</div>
-										<div>
-											<a href="#"><span class="icon-chat"></span> 19</a>
+											<p>
+												<span class="icon-person"></span> [[*{account.hoten}]]
+											</p>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
 
-						<div class="sidebar-box ftco-animate">
-							<h3>Tag Cloud</h3>
-							<div class="tagcloud">
-								<a href="#" class="tag-cloud-link">dish</a> <a href="#"
-									class="tag-cloud-link">menu</a> <a href="#"
-									class="tag-cloud-link">food</a> <a href="#"
-									class="tag-cloud-link">sweet</a> <a href="#"
-									class="tag-cloud-link">tasty</a> <a href="#"
-									class="tag-cloud-link">delicious</a> <a href="#"
-									class="tag-cloud-link">desserts</a> <a href="#"
-									class="tag-cloud-link">drinks</a>
-							</div>
-						</div>
 
-						<div class="sidebar-box ftco-animate">
-							<h3>Paragraph</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-								Ducimus itaque, autem necessitatibus voluptate quod mollitia
-								delectus aut, sunt placeat nam vero culpa sapiente consectetur
-								similique, inventore eos fugit cupiditate numquam!</p>
-						</div>
 					</div>
 				</div>
 			</div>

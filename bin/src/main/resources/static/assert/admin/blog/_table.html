@@ -1,0 +1,58 @@
+<div class="card">
+	<section class="ftco-section">
+    <div class="container">
+      <div class="row justify-content-center mb-5 pb-3">
+        <div class="col-md-7 text-center heading-section ftco-animate">
+          <h2 class="mb-2">Danh sách các bài viết</h2>
+        </div>
+      </div>
+      <div class="row justify-content-center ftco-animate">
+        <div class="col-md-12">
+          <div class="carousel-testimony owl-carousel ftco-owl">
+
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">Mã bài viết</th>
+                  <th scope="col">Tiêu đề bài viết</th>
+                  <th scope="col">Nội dung</th>
+                  <th scope="col">Ảnh bìa</th>
+                  <th scope="col">Ngày tạo</th>
+                   <th scope="col">Người tạo</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="p in pager.items">
+                  <td>{{p.idblog}}</td>
+                  <td>{{p.tieude}}</td>
+                  <td>{{p.noidung}}</td>
+                  <td>{{p.hinhanh}}</td>
+                  <td>{{p.ngaytao | date: 'dd-MM-yyyy'}}</td>
+                  <td>{{p.account.username}}</td>
+                  <td><button type="submit" ng-click="edit(p)" class="btn btn-secondary">Chỉnh sửa</button></td>
+                </tr>
+            
+              </tbody>
+            </table>
+             <div class="panel-footer text-center">
+			<button ng-click="pager.first()" class="btn btn-danger">
+				|<
+			</button>
+			<button ng-click="pager.prev()" class="btn btn-primary">
+				<<
+			</button>
+			<button class="btn btn-success">{{pager.page + 1}} of {{pager.count}}</button>
+			<button ng-click="pager.next()" class="btn btn-primary">
+				>>
+			</button>
+			<button ng-click="pager.last()" class="btn btn-danger">
+				>|
+			</button>
+		</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

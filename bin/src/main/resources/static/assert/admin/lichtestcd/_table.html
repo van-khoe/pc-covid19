@@ -1,0 +1,61 @@
+<div class="card">
+      <section class="ftco-section">
+    <div class="container">
+      <div class="row justify-content-center mb-5 pb-3">
+        <div class="col-md-7 text-center heading-section ftco-animate">
+          <h2 class="mb-2">Danh sách lịch test</h2>
+        </div>
+      </div>
+      <div class="row justify-content-center ftco-animate">
+        <div class="col-md-12>
+          <div class="carousel-testimony owl-carousel ftco-owl">
+
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Mã lịch test</th>
+                  <th>Ngày test</th>
+                  <th>Địa điểm</th>
+                  <th>Số lượng người test</th>
+                  <th>Mẫu âm tính</th>
+                  <th>Mẫu dương tính</th>
+                  <th>Chỉnh sửa</th>
+                </tr>
+              </thead>
+              <tbody>
+				<tr ng-repeat="item in pager.items">
+					<td>{{item.idlichtestcd}}</td>
+					<td>{{item.ngaytest | date: 'dd-MM-yyyy'}}</td>
+					<td>{{item.tinhthanh}}</td>
+					<td>{{item.soluongnguoitest}}</td>
+					<td>{{item.mauamtinh}}</td>
+					<td>{{item.mauduongtinh}}</td>
+					<td>
+						<div class="btn-group btn-group-xs">
+							<button ng-click="edit(item)" class="btn btn-warning">Chỉnh sửa</button>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+            </table>
+            <div class="panel-footer text-center">
+			<button ng-click="pager.first()" class="btn btn-danger">
+				|<
+			</button>
+			<button ng-click="pager.prev()" class="btn btn-primary">
+				<<
+			</button>
+			<button class="btn btn-success">{{pager.page + 1}} of {{pager.count}}</button>
+			<button ng-click="pager.next()" class="btn btn-primary">
+				>>
+			</button>
+			<button ng-click="pager.last()" class="btn btn-danger">
+				>|
+			</button>
+		</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
