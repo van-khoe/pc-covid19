@@ -27,4 +27,54 @@ public class vacxin implements Serializable {
 	@JsonIgnore
 	@OneToMany(mappedBy = "vacxin")
 	List<dottiem> dottiem;
+
+	public String getIdvacxin() {
+		return idvacxin;
+	}
+
+	public void setIdvacxin(String idvacxin) {
+		this.idvacxin = idvacxin;
+	}
+
+	public String getTenvacxin() {
+		return tenvacxin;
+	}
+
+	public void setTenvacxin(String tenvacxin) {
+		this.tenvacxin = tenvacxin;
+	}
+
+	public String getTenhang() {
+		return tenhang;
+	}
+
+	public void setTenhang(String tenhang) {
+		this.tenhang = tenhang;
+	}
+
+	public String getTenquocgia() {
+		return tenquocgia;
+	}
+
+	public void setTenquocgia(String tenquocgia) {
+		this.tenquocgia = tenquocgia;
+	}
+
+	public Integer getThoigianmui2() {
+		return thoigianmui2;
+	}
+
+	public void setThoigianmui2(Integer thoigianmui2) {
+		this.thoigianmui2 = thoigianmui2;
+	}
+
+	public List<dottiem> getDottiem() {
+		return dottiem;
+	}
+
+	public void setDottiem(List<dottiem> dottiem) {
+		this.dottiem = dottiem;
+	}
+	
+	
 }

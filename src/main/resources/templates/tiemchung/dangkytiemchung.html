@@ -14,7 +14,7 @@
 						<div class="col-md-7 col-sm-12 ftco-animate mb-5">
 							<p class="breadcrumbs"
 								data-scrollax=" properties: { translateY: '70%', opacity: 1.6}">
-								<span class="mr-2"><a th:href="@{/}">Trang chủ</a></span> <span>Đăng
+								<span class="mr-2"><a th:href="@{/home}">Trang chủ</a></span> <span>Đăng
 									ký tiêm Vaccine</span>
 							</p>
 							<h1 class="mb-3"
@@ -54,7 +54,7 @@
 							
 								<div class="form-group col-md-6">
 									<label for="inputbirthday4">Ngày sinh</label><i
-										th:errors="*{ngaysinh}"></i> <input type="date"
+										th:errors="*{ngaysinh}"></i> <input type="date" th:max="${newd}"
 										class="form-control" id="inputbirthday4"
 										th:field="*{ngaysinh}">
 								</div>

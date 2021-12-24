@@ -3,7 +3,7 @@
 	<div class="card-body">
 		<div class="row">
 			<div class="col-sm-12">
-				<div ng-show="show2" class="alert alert-danger" role="alert">{{thongbao2}}</div>
+				
 				<div class="row">
 					<div class="form-group col-sm-6">
 						<label for="usr">Tài khoản:</label> <input id="us"
@@ -43,7 +43,7 @@
 					</div>
 					<div class="form-group col-sm-6">
 						<label for="usr">Ngày sinh:</label><input ng-model="form.ngaysinh"
-							type="date" class="form-control" required="required">
+							type="date" max="{{maxdate | date: 'yyyy-MM-dd'}}" class="form-control" required="required">
 					</div>
 				</div>
 				<div class="row">
@@ -63,6 +63,7 @@
 			</div>
 		</div>
 	</div>
+	<div ng-show="show2" class="alert alert-danger" role="alert">{{thongbao2}}</div>
 	<div class="card-footer text-center">
 		<button id="create" ng-click="create()" type="button"
 			class="btn btn-primary">

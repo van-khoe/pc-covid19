@@ -35,4 +35,36 @@ public class phieutiem implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "dottiem_iddottiem")
 	dottiem dottiem;
+	public Long getIdphieutiem() {
+		return idphieutiem;
+	}
+	public void setIdphieutiem(Long idphieutiem) {
+		this.idphieutiem = idphieutiem;
+	}
+	public String getCosoyte() {
+		return cosoyte;
+	}
+	public void setCosoyte(String cosoyte) {
+		this.cosoyte = cosoyte;
+	}
+	public String getDiachi() {
+		return diachi;
+	}
+	public void setDiachi(String diachi) {
+		this.diachi = diachi;
+	}
+	public nguoitiem getDangkytiemchung() {
+		return dangkytiemchung;
+	}
+	public void setDangkytiemchung(nguoitiem dangkytiemchung) {
+		this.dangkytiemchung = dangkytiemchung;
+	}
+	public dottiem getDottiem() {
+		return dottiem;
+	}
+	public void setDottiem(dottiem dottiem) {
+		this.dottiem = dottiem;
+	}
+	
+	
 }

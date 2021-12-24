@@ -48,10 +48,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 
 		
 		http.formLogin()
-		.loginPage("/")
+		.loginPage("/home")
 		.loginProcessingUrl("/security/dangnhap")
-		.defaultSuccessUrl("/", false)
-		.failureUrl("/");
+		.defaultSuccessUrl("/home", false)
+		.failureUrl("/home");
 
 		
 		http.rememberMe()
@@ -59,7 +59,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		
 		http.logout()
 		.logoutUrl("/security/dangxuat")
-		.logoutSuccessUrl("/");
+		.logoutSuccessUrl("/home");
 		
 		
 	}

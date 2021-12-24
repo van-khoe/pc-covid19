@@ -29,7 +29,7 @@ public class phieudangkylichhenServiceImpl implements phieudangkylichhenService{
 	}
 
 	@Override
-	public phieutiem create(phieutiem phieutiem) {
+	public phieutiem create(phieutiem phieutiem) {		
 		int email = phieutiem.getDangkytiemchung().getIdnguoitiem();
 		nguoitiem mailnguoitiem = nguoitiemDAO.findById(email).get();
 		
@@ -42,7 +42,7 @@ public class phieudangkylichhenServiceImpl implements phieudangkylichhenService{
 		try {
 			mailer.send(mailnguoitiem.getEmail(), "Thông báo nhận lịch hẹn tiêm chủng", "Thông báo Ông/Bà : " 
 					+ mailnguoitiem.getHoten() + " nhận lịch tiêm chủng vào ngày : " + date + 
-					" Tại cơ sở y tế : " + phieutiem.getCosoyte() + " địa chỉ " + phieutiem.getDiachi());
+					", tại cơ sở y tế : " + phieutiem.getCosoyte() + ", địa chỉ: " + phieutiem.getDiachi());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

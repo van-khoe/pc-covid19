@@ -1,5 +1,7 @@
 package com.j6.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -65,7 +67,9 @@ public class NguoiTiemController {
 	
 	@GetMapping("/dangkytiemchung")
 	public String home1(Model model) {
-		
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		Date newdate = new Date();
+		model.addAttribute("newd", sdf.format(newdate));
 		nguoitiem dk = new nguoitiem();
 		dk.setGioitinh(true);
 		model.addAttribute("dk", dk);

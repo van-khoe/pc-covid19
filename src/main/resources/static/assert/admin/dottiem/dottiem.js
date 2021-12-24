@@ -3,17 +3,22 @@ app.controller("dottiem", function($scope, $http) {
 	$scope.link = 'product';
 	$scope.items = [];
 	$scope.vaccine = [];
+	$scope.show2 = false;
+	$scope.thongbao2 = 'Lỗi của bạn là';
 	$scope.form = {
 	};
 
 	$scope.inttialize = function() {
 		$http.get("/rest/dottiem").then(resp => {
 			$scope.items = resp.data;
+			$scope.items.forEach(item => {
+				item.ngaytiem = new Date(item.ngaytiem)
+			})
 			console.log($scope.items);
 		});
 		$http.get("/rest/vaccine").then(resp => {
-            $scope.vaccine = resp.data;
-        });
+			$scope.vaccine = resp.data;
+		});
 	}
 
 	$scope.inttialize();
@@ -39,28 +44,60 @@ app.controller("dottiem", function($scope, $http) {
 
 	$scope.create = function() {
 		var item = angular.copy($scope.form);
-		$http.post(`/rest/dottiem`, item).then(resp => {
-			$scope.items.push(resp.data);
-			$scope.reset();
-			alert("Thêm mới đợt tiêm thành công!");
 
-		}).catch(error => {
-			alert("Lỗi thêm mới đợt tiêm!");
-			console.log(error);
-		});
+		if (item.ngaytiem == null) {
+			$scope.show2 = true;
+			$scope.thongbao2 = 'Vui lòng nhập ngày tiêm!';
+		}
+		else if (item.diadiemtiem == null) {
+			$scope.show2 = true;
+			$scope.thongbao2 = 'Vui lòng nhập địa điểm tiêm!';
+		}
+		else if (item.vacxin == null) {
+			$scope.show2 = true;
+			$scope.thongbao2 = 'Vui lòng chọn loại vacxin!';
+		}
+		else {
+			$http.post(`/rest/dottiem`, item).then(resp => {
+				$scope.items.push(resp.data);
+				$scope.reset();
+				alert("Thêm mới đợt tiêm thành công!");
+
+			}).catch(error => {
+				alert("Lỗi thêm mới đợt tiêm!");
+				console.log(error);
+			});
+		}
 	}
+
 
 	$scope.update = function() {
 		var item = angular.copy($scope.form);
-		$http.put(`/rest/dottiem/${item.iddottiem}`, item).then(resp => {
-			var index = $scope.items.findIndex(p => p.iddottiem == item.iddottiem);
-			$scope.items[index] = item;
-			alert("Cập nhật đợt tiêm thành công!");
 
-		}).catch(error => {
-			alert("Lỗi cập nhật đợt tiêm!");
-			console.log(error);
-		});
+		if (item.ngaytiem == null) {
+			$scope.show2 = true;
+			$scope.thongbao2 = 'Vui lòng nhập ngày tiêm!';
+		}
+		else if (item.diadiemtiem == null || item.diadiemtiem == "") {
+			$scope.show2 = true;
+			$scope.thongbao2 = 'Vui lòng nhập địa điểm tiêm!';
+		}
+		else if (item.vacxin.idvacxin == null || item.vacxin.idvacxin == "") {
+			$scope.show2 = true;
+			$scope.thongbao2 = 'Vui lòng chọn loại vacxin!';
+		}
+		else {
+			$http.put(`/rest/dottiem/${item.iddottiem}`, item).then(resp => {
+				var index = $scope.items.findIndex(p => p.iddottiem == item.iddottiem);
+				$scope.items[index] = item;
+				alert("Cập nhật đợt tiêm thành công!");
+
+			}).catch(error => {
+				alert("Lỗi cập nhật đợt tiêm!");
+				console.log(error);
+			});
+		}
+
 	}
 
 

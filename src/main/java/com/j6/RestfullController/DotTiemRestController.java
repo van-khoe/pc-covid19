@@ -32,7 +32,7 @@ public class DotTiemRestController {
 		return dottiemservice.create(dottiem);
 	}
 
-	@PutMapping("iddottiem")
+	@PutMapping("{iddottiem}")
 	public dottiem update(@PathVariable("iddottiem") String id, @RequestBody dottiem dottiem) {
 		return dottiemservice.update(dottiem);
 	}

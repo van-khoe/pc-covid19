@@ -38,4 +38,42 @@ public class lichsutiem implements Serializable {
 	@ManyToOne()
 	@JoinColumn(name = "dangkytiemchung_iddangkytiemchung")
 	nguoitiem dangkytiemchung;
+	public Long getIdlichsutiem() {
+		return idlichsutiem;
+	}
+	public void setIdlichsutiem(Long idlichsutiem) {
+		this.idlichsutiem = idlichsutiem;
+	}
+	public Date getNgaytiem() {
+		return ngaytiem;
+	}
+	public void setNgaytiem(Date ngaytiem) {
+		this.ngaytiem = ngaytiem;
+	}
+	public String getLoso() {
+		return loso;
+	}
+	public void setLoso(String loso) {
+		this.loso = loso;
+	}
+	public dottiem getDottiem() {
+		return dottiem;
+	}
+	public void setDottiem(dottiem dottiem) {
+		this.dottiem = dottiem;
+	}
+	public nhanvien getNhanvien() {
+		return nhanvien;
+	}
+	public void setNhanvien(nhanvien nhanvien) {
+		this.nhanvien = nhanvien;
+	}
+	public nguoitiem getDangkytiemchung() {
+		return dangkytiemchung;
+	}
+	public void setDangkytiemchung(nguoitiem dangkytiemchung) {
+		this.dangkytiemchung = dangkytiemchung;
+	}
+	
+	
 }

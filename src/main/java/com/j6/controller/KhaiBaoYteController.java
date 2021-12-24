@@ -1,5 +1,7 @@
 package com.j6.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Optional;
 
 import javax.servlet.http.HttpServletRequest;
@@ -28,13 +30,16 @@ public class KhaiBaoYteController {
 	
 	@GetMapping("/khaibaoyte")
 	public String home(Model model, @RequestParam("kb") Optional<Long> idkhaibao) {
-		model.addAttribute("khaibaoyte", true);
-		if(!idkhaibao.isPresent()) {
-			khaibaoyte kb = new khaibaoyte();
-			model.addAttribute("kb",kb);
-		}else {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		Date newdate = new Date("2021/01/01");
+		model.addAttribute("newd", sdf.format(newdate));
+		if(!idkhaibao.isEmpty()) {
 			khaibaoyte khaibaoytee = khaibao.findById(idkhaibao.get());
 			model.addAttribute("kb",khaibaoytee);
+		}else {
+			khaibaoyte kb = new khaibaoyte();
+			System.err.print(kb);
+			model.addAttribute("kb",kb);
 		}
 		return "khaibaoyte/khaibaoyte";
 	}
@@ -42,12 +47,10 @@ public class KhaiBaoYteController {
 	@PostMapping("/khaibaoyte")
 	public String home(Model model, @ModelAttribute("kb") khaibaoyte khaibaoyte) {
 		model.addAttribute("home", true);
-		System.out.println(khaibaoyte);
 		String id = rq.getRemoteUser();
 		taikhoan account = taikhoanS.findById(id);
 		khaibaoyte.setAccount(account);
 		khaibao.save(khaibaoyte);
-
-		return "khaibaoyte/khaibaoyte";
+		return "redirect:/lichsukhaibao";
 	}
 }

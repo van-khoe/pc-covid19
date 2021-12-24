@@ -6,13 +6,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class HomeController {
-	@RequestMapping("/")
+	@RequestMapping({"/trangchu", "/home/index"})
 	public String home(Model model) {
-		model.addAttribute("trangchu", true);
-		return "redirect:/home";
-	}
-	@RequestMapping("/home/index")
-	public String home1(Model model) {
 		model.addAttribute("trangchu", true);
 		return "redirect:/home";
 	}

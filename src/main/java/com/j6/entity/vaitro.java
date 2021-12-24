@@ -26,4 +26,30 @@ public class vaitro implements Serializable {
 	@JsonIgnore
 	@OneToMany(mappedBy = "role", fetch = FetchType.EAGER)
 	List<capquyen> capquyen;
+
+	public String getIdvaitro() {
+		return idvaitro;
+	}
+
+	public void setIdvaitro(String idvaitro) {
+		this.idvaitro = idvaitro;
+	}
+
+	public String getTen() {
+		return ten;
+	}
+
+	public void setTen(String ten) {
+		this.ten = ten;
+	}
+
+	public List<capquyen> getCapquyen() {
+		return capquyen;
+	}
+
+	public void setCapquyen(List<capquyen> capquyen) {
+		this.capquyen = capquyen;
+	}
+	
+	
 }

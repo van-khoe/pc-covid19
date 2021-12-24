@@ -11,7 +11,7 @@
                 <div class="row">
                   <div class="form-group col-sm-12">
                     <div>Ngày test</div>
-                    <input ng-model="form.ngaytest" type="date" class="form-control">
+                    <input ng-model="form.ngaytest" type="date" max="{{maxdate | date: 'yyyy-MM-dd'}}" class="form-control">
                   </div>
                 </div>
                 <div class="row">
@@ -23,30 +23,31 @@
                   </div>
                   <div class="form-group col-sm-6">
                     <div>Số lượng người test</div>
-                    <input ng-model="form.soluongnguoitest" type="number" min="0" class="form-control" required> 
+                    <input ng-model="form.soluongnguoitest" type="number" class="form-control" required> 
                   </div>
                 </div>
                 <div class="row">
                   <div class="form-group col-sm-6">
                     <div>Mẫu âm tính</div>
-                    <input ng-model="form.mauamtinh" type="number" min="0" class="form-control" required>
+                    <input ng-model="form.mauamtinh" type="number" class="form-control" required>
                   </div>
                   <div class="form-group col-sm-6">
                     <div>Mẫu dương tính</div>
-                    <input ng-model="form.mauduongtinh" type="number" min="0" class="form-control" required>
+                    <input ng-model="form.mauduongtinh" type="number"  class="form-control" required>
                   </div>
                 </div>
               </div>
             </div>
           </div> <br> <br>
+          <div ng-show="thongbao" class="alert alert-danger" role="alert">{{thongbao}}</div>
           <div class="panel-footer text-center">
-		<button ng-click="create()" class="btn btn-success">
+		<button id="create" ng-click="create()" class="btn btn-success">
 			<b class="glyphicon glyphicon-plus"></b> Thêm
 		</button>
-		<button ng-click="update()" class="btn btn-warning">
+		<button id="update" ng-click="update()" class="btn btn-warning">
 			<b class="glyphicon glyphicon-save"></b> Cập nhật
 		</button>
-		<button ng-click="delete(form)" class="btn btn-danger">
+		<button id="delete" ng-click="delete(form)" class="btn btn-danger">
 			<b class="glyphicon glyphicon-trash"></b> Xóa
 		</button>
 		<button ng-click="reset()" class="btn btn-primary">

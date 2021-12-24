@@ -225,13 +225,14 @@ input.ng-invalid.ng-touched {
 							<input type="text" id="inputUsername" class="form-control"
 								placeholder="Tài khoản" required="" ng-model="taikhoan"
 								name="username"> <input type="password"
-								id="inputPassword" class="form-control" placeholder="Mật khẩu"
+								id="inputPassword" class="form-control" ng-change="login()" placeholder="Mật khẩu"
 								required="" ng-model="matkhau" name="password">
 
-							<button class="btn btn-success btn-block" ng-mousemove="login()"
+							<button class="btn btn-success btn-block"
 								ng-click="message123()">
 								<i class="fas fa-sign-in-alt"></i> Đăng nhập
 							</button>
+							<br>
 							<a href="#" id="forgot_pswd">Quên mật khẩu?</a>
 							<hr>
 							<!-- <p>Don't have an account!</p>  -->
@@ -255,10 +256,10 @@ input.ng-invalid.ng-touched {
 							<input type="text" id="inputUsername" class="form-control"
 								placeholder="Tài khoản" required="" ng-model="taikhoan"
 								name="username"> <input type="password"
-								id="inputPassword" class="form-control" placeholder="Mật khẩu"
+								id="inputPassword" class="form-control" ng-change="login()" placeholder="Mật khẩu"
 								required="" ng-model="matkhau" name="password">
 
-							<button class="btn btn-success btn-block" ng-mousemove="login()"
+							<button class="btn btn-success btn-block"
 								ng-click="message123()">
 								<i class="fas fa-sign-in-alt"></i> Đăng nhập
 							</button>
@@ -279,12 +280,12 @@ input.ng-invalid.ng-touched {
 								placeholder="Tài khoản" ng-model="qmkTK" name="username"
 								autofocus="" required="required"> <input type="email"
 								id="resetEmail" ng-model="qmkEmail" name="email"
-								class="form-control" placeholder="Địa chỉ Email" autofocus=""
+								class="form-control" ng-change="qmk()" placeholder="Địa chỉ Email" autofocus=""
 								required="required"> <br> <i th:text="${message}"></i>
-							<button ng-mousemove="qmk()" ng-click="thongbao()"
+							<button ng-click="thongbao()"
 								class="btn btn-primary btn-block">Lấy lại mật khẩu</button>
 							<br>
-							<div ng-show="show3" class="alert alert-danger" role="alert">{{thongbao3}}</div>
+							
 							<a href="#" id="cancel_reset"><i class="fas fa-angle-left"></i>
 								Trở lại</a>
 						</form>
@@ -294,9 +295,9 @@ input.ng-invalid.ng-touched {
 								placeholder="Tài khoản" ng-model="qmkTK" name="username"
 								autofocus="" required="required"> <input type="email"
 								id="resetEmail" ng-model="qmkEmail" name="email"
-								class="form-control" placeholder="Địa chỉ Email" autofocus=""
+								class="form-control" ng-change="qmk()" placeholder="Địa chỉ Email" autofocus=""
 								required="required"> <br> <i th:text="${message}"></i>
-							<button ng-mousemove="qmk()" ng-click="thongbao()"
+							<button ng-click="thongbao()"
 								class="btn btn-primary btn-block">Lấy lại mật khẩu</button>
 							<br>
 							<div ng-show="show3" class="alert alert-danger" role="alert">{{thongbao3}}</div>
@@ -329,7 +330,7 @@ input.ng-invalid.ng-touched {
 								placeholder="Địa chỉ Email" required autofocus=""> <input
 								type="text" id="user-phone" class="form-control"
 								placeholder="Số điện thoại" ng-model="form.sdt" required
-								autofocus=""> <input type="date" id="user-bithrday"
+								autofocus=""> <input type="date" max="{{maxdate | date: 'yyyy-MM-dd'}}" id="user-bithrday"
 								class="form-control" placeholder="Ngày sinh"
 								ng-model="form.ngaysinh" required autofocus=""> <select
 								class="form-control" id="exampleFormControlSelect1"

@@ -30,4 +30,24 @@ public class capquyen implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "vaitro_idvaitro")
 	private vaitro role;
+	public int getIdcapquyen() {
+		return idcapquyen;
+	}
+	public void setIdcapquyen(int idcapquyen) {
+		this.idcapquyen = idcapquyen;
+	}
+	public taikhoan getAccount() {
+		return account;
+	}
+	public void setAccount(taikhoan account) {
+		this.account = account;
+	}
+	public vaitro getRole() {
+		return role;
+	}
+	public void setRole(vaitro role) {
+		this.role = role;
+	}
+	
+	
 }

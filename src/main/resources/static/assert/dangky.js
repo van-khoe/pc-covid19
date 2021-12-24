@@ -69,7 +69,7 @@ app.controller("home-ctrl", function($scope, $http) {
 
 })
 
-app.controller("dangky-ctrl", function($scope, $http) {
+app.controller("dangky-ctrl", function($scope, $http, $window) {
 	$scope.link = 'user';
 	$scope.items = [];
 	$scope.order = [];
@@ -86,6 +86,8 @@ app.controller("dangky-ctrl", function($scope, $http) {
 	$scope.thongbao3 = 'Lỗi của bạn là';
 	$scope.qmkTK;
 	$scope.qmkEmail;
+	$scope.maxdate = new Date();
+	console.log($scope.maxdate);
 
 	$scope.form = {
 		trangthai: true,
@@ -139,6 +141,7 @@ app.controller("dangky-ctrl", function($scope, $http) {
 			if ($scope.items[index].trangthai == true) {
 				if ($scope.items[index].matkhau == $scope.matkhau) {
 					$scope.check = true;
+
 				}
 				else {
 					$scope.check = false;
@@ -249,9 +252,17 @@ app.controller("dangky-ctrl", function($scope, $http) {
 			$scope.show2 = true;
 			$scope.thongbao2 = 'Vui lòng nhập tài khoản!';
 		}
+		else if (!item.username.match("^[a-z0-9_-]{4,16}$")) {
+			$scope.show2 = true;
+			$scope.thongbao2 = 'Tài khoản không hợp lệ, phải có ít nhất 4 ký tự và dài nhất 16 ký tự!';
+		}
 		else if (item.matkhau == null) {
 			$scope.show2 = true;
 			$scope.thongbao2 = 'Vui lòng nhập mật khẩu!';
+		}
+		else if (!item.matkhau.match("^[a-z0-9_-]{6,18}$")) {
+			$scope.show2 = true;
+			$scope.thongbao2 = 'Mật khẩu không hợp lệ, phải có ít nhất 6 ký tự và dài nhất 18 ký tự!';
 		}
 		else if ($scope.matkhau2 == null) {
 			$scope.show2 = true;
@@ -261,9 +272,17 @@ app.controller("dangky-ctrl", function($scope, $http) {
 			$scope.show2 = true;
 			$scope.thongbao2 = 'Vui lòng nhập email!';
 		}
+		else if (!item.email.match("^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$")) {
+			$scope.show2 = true;
+			$scope.thongbao2 = 'Email không đúng định dạng!';
+		}
 		else if (item.sdt == null) {
 			$scope.show2 = true;
 			$scope.thongbao2 = 'Vui lòng nhập số điện thoại!';
+		}
+		else if (!item.sdt.match("^(0|\\+84)(\\s|\\.)?((3[2-9])|(5[689])|(7[06-9])|(8[1-689])|(9[0-46-9]))(\\d)(\\s|\\.)?(\\d{3})(\\s|\\.)?(\\d{3})$")) {
+			$scope.show2 = true;
+			$scope.thongbao2 = 'Số điện thoại không hợp lệ!';
 		}
 		else if (item.ngaysinh == null) {
 			$scope.show2 = true;
@@ -278,6 +297,7 @@ app.controller("dangky-ctrl", function($scope, $http) {
 			$scope.thongbao2 = 'Vui lòng nhập đại chỉ!';
 		}
 		else {
+			$scope.show2 = false;
 			console.log(item);
 			$scope.autho.account = angular.copy($scope.form);
 			var index = $scope.items.findIndex(p => p.username == item.username);
@@ -294,7 +314,7 @@ app.controller("dangky-ctrl", function($scope, $http) {
 							alert("Lỗi !");
 							console.log(error);
 						});
-
+						$window.location.href = "/home";
 					}).catch(error => {
 						alert("Lỗi thêm mới tài khoản!");
 						console.log(error);

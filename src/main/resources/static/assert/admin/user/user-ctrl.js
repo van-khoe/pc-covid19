@@ -7,6 +7,7 @@ app.controller("user-ctrl", function($scope, $http) {
 	$scope.items2 = [];
 	$scope.show2 = false;
 	$scope.thongbao2 = 'Lỗi của bạn là';
+	$scope.maxdate = new Date();
 
 	$scope.autho = {
 		account: {},
@@ -52,39 +53,61 @@ app.controller("user-ctrl", function($scope, $http) {
 	$scope.create = function() {
 		var item = angular.copy($scope.form);
 		console.log(item);
-		if (item.hoten == null) {
-			$scope.show2 = true;
-			$scope.thongbao2 = 'Vui lòng nhập họ tên!';
-		}
-		else if (item.username == null) {
+
+		if (item.username == null) {
 			$scope.show2 = true;
 			$scope.thongbao2 = 'Vui lòng nhập tài khoản!';
 		}
+		else if (!item.username.match("^[a-z0-9_-]{4,16}$")) {
+			$scope.show2 = true;
+			$scope.thongbao2 = 'Tài khoản không hợp lệ, phải có ít nhất 4 ký tự và dài nhất 16 ký tự!';
+		}	
 		else if (item.matkhau == null) {
 			$scope.show2 = true;
 			$scope.thongbao2 = 'Vui lòng nhập mật khẩu!';
 		}
-		else if (item.email == null) {
+		else if (!item.matkhau.match("^[a-z0-9_-]{6,18}$")) {
 			$scope.show2 = true;
-			$scope.thongbao2 = 'Vui lòng nhập email!';
-		}
-		else if (item.sdt == null) {
-			$scope.show2 = true;
-			$scope.thongbao2 = 'Vui lòng nhập số điện thoại!';
-		}
-		else if (item.ngaysinh == null) {
-			$scope.show2 = true;
-			$scope.thongbao2 = 'Vui lòng nhập ngày sinh!';
+			$scope.thongbao2 = 'Mật khẩu không hợp lệ, phải có ít nhất 6 ký tự và dài nhất 18 ký tự!';
 		}
 		else if (item.gioitinh == null) {
 			$scope.show2 = true;
 			$scope.thongbao2 = 'Vui lòng nhập giới tính!';
 		}
+		else if (item.hoten == null) {
+			$scope.show2 = true;
+			$scope.thongbao2 = 'Vui lòng nhập họ tên!';
+		}
+		else if (item.email == null) {
+			$scope.show2 = true;
+			$scope.thongbao2 = 'Vui lòng nhập email!';
+		}
+		else if (!item.email.match("^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$")) {
+			$scope.show2 = true;
+			$scope.thongbao2 = 'Email không đúng định dạng!';
+		}
 		else if (item.diachi == null) {
 			$scope.show2 = true;
 			$scope.thongbao2 = 'Vui lòng nhập đại chỉ!';
 		}
+		else if (item.ngaysinh == null) {
+			$scope.show2 = true;
+			$scope.thongbao2 = 'Vui lòng nhập ngày sinh!';
+		}
+		else if (item.sdt == null) {
+			$scope.show2 = true;
+			$scope.thongbao2 = 'Vui lòng nhập số điện thoại!';
+		}
+		else if (!item.sdt.match("^(0|\\+84)(\\s|\\.)?((3[2-9])|(5[689])|(7[06-9])|(8[1-689])|(9[0-46-9]))(\\d)(\\s|\\.)?(\\d{3})(\\s|\\.)?(\\d{3})$")) {
+			$scope.show2 = true;
+			$scope.thongbao2 = 'Số điện thoại không hợp lệ!';
+		}
+		else if (item.trangthai == null) {
+			$scope.show2 = true;
+			$scope.thongbao2 = 'Vui lòng chọn trạng thái!';
+		}	
 		else {
+			$scope.show2 = false;
 			$scope.autho.account = angular.copy($scope.form);
 			var index = $scope.items.findIndex(p => p.username == item.username);
 			console.log(index);
@@ -117,39 +140,61 @@ app.controller("user-ctrl", function($scope, $http) {
 
 	$scope.update = function() {
 		var item = angular.copy($scope.form);
-		if (item.hoten == null) {
-			$scope.show2 = true;
-			$scope.thongbao2 = 'Vui lòng nhập họ tên!';
-		}
-		else if (item.username == null) {
+		if (item.username == null) {
 			$scope.show2 = true;
 			$scope.thongbao2 = 'Vui lòng nhập tài khoản!';
 		}
+		else if (!item.username.match("^[a-z0-9_-]{4,16}$")) {
+			$scope.show2 = true;
+			$scope.thongbao2 = 'Tài khoản không hợp lệ, phải có ít nhất 4 ký tự và dài nhất 16 ký tự!';
+		}	
 		else if (item.matkhau == null) {
 			$scope.show2 = true;
 			$scope.thongbao2 = 'Vui lòng nhập mật khẩu!';
 		}
-		else if (item.email == null) {
+		else if (!item.matkhau.match("^[a-z0-9_-]{6,18}$")) {
 			$scope.show2 = true;
-			$scope.thongbao2 = 'Vui lòng nhập email!';
-		}
-		else if (item.sdt == null) {
-			$scope.show2 = true;
-			$scope.thongbao2 = 'Vui lòng nhập số điện thoại!';
-		}
-		else if (item.ngaysinh == null) {
-			$scope.show2 = true;
-			$scope.thongbao2 = 'Vui lòng nhập ngày sinh!';
+			$scope.thongbao2 = 'Mật khẩu không hợp lệ, phải có ít nhất 6 ký tự và dài nhất 18 ký tự!';
 		}
 		else if (item.gioitinh == null) {
 			$scope.show2 = true;
 			$scope.thongbao2 = 'Vui lòng nhập giới tính!';
 		}
-		else if (item.diachi == null) {
+		else if (item.hoten == null) {
+			$scope.show2 = true;
+			$scope.thongbao2 = 'Vui lòng nhập họ tên!';
+		}
+		else if (item.email == null) {
+			$scope.show2 = true;
+			$scope.thongbao2 = 'Vui lòng nhập email!';
+		}
+		else if (!item.email.match("^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$")) {
+			$scope.show2 = true;
+			$scope.thongbao2 = 'Email không đúng định dạng!';
+		}
+		else if (item.diachi == null || item.diachi == '') {
 			$scope.show2 = true;
 			$scope.thongbao2 = 'Vui lòng nhập đại chỉ!';
 		}
+		else if (item.ngaysinh == null) {
+			$scope.show2 = true;
+			$scope.thongbao2 = 'Vui lòng nhập ngày sinh!';
+		}
+		else if (item.sdt == null) {
+			$scope.show2 = true;
+			$scope.thongbao2 = 'Vui lòng nhập số điện thoại!';
+		}
+		else if (!item.sdt.match("^(0|\\+84)(\\s|\\.)?((3[2-9])|(5[689])|(7[06-9])|(8[1-689])|(9[0-46-9]))(\\d)(\\s|\\.)?(\\d{3})(\\s|\\.)?(\\d{3})$")) {
+			$scope.show2 = true;
+			$scope.thongbao2 = 'Số điện thoại không hợp lệ!';
+		}
+		else if (item.trangthai == null) {
+			$scope.show2 = true;
+			$scope.thongbao2 = 'Vui lòng chọn trạng thái!';
+		}
 		else {
+		console.log(item);
+			$scope.show2 = false;
 			$http.put(`/rest/taikhoan/${item.username}`, item).then(resp => {
 				var index = $scope.items.findIndex(p => p.username == item.username);
 				resp.data.ngaysinh = new Date(resp.data.ngaysinh)

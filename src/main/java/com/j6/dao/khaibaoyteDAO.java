@@ -8,6 +8,6 @@ import org.springframework.data.jpa.repository.Query;
 import com.j6.entity.khaibaoyte;
 
 public interface khaibaoyteDAO extends JpaRepository<khaibaoyte, Long>{
-	@Query("SELECT o FROM khaibaoyte o WHERE o.account.username=?1 ")
+	@Query("SELECT o FROM khaibaoyte o WHERE o.account.username=?1 order by o.ngaykhaibao DESC ")
 	List<khaibaoyte> findByUsername(String usernamekhaibao);
 }

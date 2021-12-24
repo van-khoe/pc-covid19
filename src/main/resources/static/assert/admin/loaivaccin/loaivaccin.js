@@ -43,6 +43,8 @@ app.controller("loaivaccin", function($scope, $http){
 
     $scope.create = function(){
 		var item = angular.copy($scope.form);
+		var index = $scope.items.findIndex(p => p.idvacxin == item.idvacxin);
+		if(index < 0){
 		$http.post(`/rest/vaccine`,item).then(resp => {
 			$scope.items.push(resp.data);
 			$scope.reset();
@@ -52,6 +54,9 @@ app.controller("loaivaccin", function($scope, $http){
 			alert("Lỗi thêm mới vaccine!");
 			console.log(error);
 		});
+		}else{
+			alert("Mã Vaccine đã tồn tại!");
+		}
     }
 
     $scope.update = function(){

@@ -1,5 +1,8 @@
 package com.j6.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +27,9 @@ public class CatNhatTKController {
 	
 	@GetMapping("/taikhoan/capnhat")
 	public String capnhat(Model model) {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		Date newdate = new Date();
+		model.addAttribute("newd", sdf.format(newdate));
 		String id = rq.getRemoteUser();
 		taikhoan account = taikhoanS.findById(id);
 		model.addAttribute("acc", account);

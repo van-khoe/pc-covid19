@@ -14,7 +14,7 @@
 						<div class="col-md-7 col-sm-12 ftco-animate mb-5">
 							<p class="breadcrumbs"
 								data-scrollax=" properties: { translateY: '70%', opacity: 1.6}">
-								<span class="mr-2"><a th:href="@{/}">Trang chủ</a></span> <span>Khai
+								<span class="mr-2"><a th:href="@{/home}">Trang chủ</a></span> <span>Khai
 									báo y tế</span>
 							</p>
 							<h1 class="mb-3"
@@ -42,12 +42,12 @@
 
 
 							<div class="form-row">
-							<div class="form-group col-md-6">
-									<label for="inputname4">Id khai báo y tế</label> <i
-										th:errors="*{idkhaibaoyte}"></i> <input class="form-control"
-										id="inputid" th:field="*{idkhaibaoyte}">
-								</div>
-							
+
+								<input class="form-control" id="inputname4"
+									th:field="*{idkhaibaoyte}" hidden>
+
+
+
 								<div class="form-group col-md-6">
 									<label for="inputname4">Họ & tên</label> <i
 										th:errors="*{hoten}"></i> <input class="form-control"
@@ -58,7 +58,7 @@
 									<label for="inputbirthday4">Ngày sinh</label><i
 										th:errors="*{ngaysinh}"></i> <input type="date"
 										class="form-control" id="inputbirthday4"
-										th:field="*{ngaysinh}">
+										th:field="*{ngaysinh}" th:max="${newd}" th:value="2001/01/01">
 								</div>
 							</div>
 							<div class="form-group">
@@ -113,18 +113,12 @@
 							</fieldset>
 							<fieldset class="form-group row">
 								<legend class="col-form-label float-sm-left pt-0">Trạng
-									thái trong vòng 14 ngày có các dấu hiệu:</legend>
+									thái trong vòng 14 ngày có các dấu hiệu: (cách nhau dấu phẩy)</legend>
 								<i th:errors="*{bieuhien}"></i>
 								<div class="col-sm-10">
-									<div class="form-check-inline">
-										<input class="form-check-input" type="checkbox"
-											th:field="*{bieuhien}" value="1"> <label
-											class="form-check-label" for="gridRadios1"> Sốt cao </label>
-									</div>
-									<div class="form-check-inline">
-										<input class="form-check-input" type="checkbox"
-											th:field="*{bieuhien}" value="0"> <label
-											class="form-check-label" for="gridRadios2"> Ho </label>
+									<div class="form-group">
+										<i th:errors="*{bieuhien}"></i> <input class="form-control"
+											id="inputAddress" th:field="*{bieuhien}">
 									</div>
 								</div>
 							</fieldset>

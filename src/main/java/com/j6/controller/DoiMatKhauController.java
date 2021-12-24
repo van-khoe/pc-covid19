@@ -49,6 +49,7 @@ public class DoiMatKhauController {
 			taikhoan.setSdt(acc.getSdt());
 			taikhoan.setNgaysinh(acc.getNgaysinh());
 			taikhoan.setTrangthai(acc.getTrangthai());
+			taikhoan.setEmail(acc.getEmail());
 			String newpass = request.getParameter("newpass");
 			String conpass = request.getParameter("conpass");
 			

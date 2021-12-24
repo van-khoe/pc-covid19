@@ -32,4 +32,54 @@ public class blog {
 	@ManyToOne
 	@JoinColumn(name = "nguoitao")
 	taikhoan account;
+
+	public Integer getIdblog() {
+		return idblog;
+	}
+
+	public void setIdblog(Integer idblog) {
+		this.idblog = idblog;
+	}
+
+	public String getTieude() {
+		return tieude;
+	}
+
+	public void setTieude(String tieude) {
+		this.tieude = tieude;
+	}
+
+	public String getNoidung() {
+		return noidung;
+	}
+
+	public void setNoidung(String noidung) {
+		this.noidung = noidung;
+	}
+
+	public String getHinhanh() {
+		return hinhanh;
+	}
+
+	public void setHinhanh(String hinhanh) {
+		this.hinhanh = hinhanh;
+	}
+
+	public Date getNgaytao() {
+		return ngaytao;
+	}
+
+	public void setNgaytao(Date ngaytao) {
+		this.ngaytao = ngaytao;
+	}
+
+	public taikhoan getAccount() {
+		return account;
+	}
+
+	public void setAccount(taikhoan account) {
+		this.account = account;
+	}
+	
+	
 }
